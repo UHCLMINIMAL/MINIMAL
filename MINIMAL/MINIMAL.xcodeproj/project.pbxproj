@@ -16,6 +16,10 @@
 		321F68F92AC952DB005F6DD4 /* MINIMALTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68F82AC952DB005F6DD4 /* MINIMALTests.swift */; };
 		321F69032AC952DB005F6DD4 /* MINIMALUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69022AC952DB005F6DD4 /* MINIMALUITests.swift */; };
 		321F69052AC952DB005F6DD4 /* MINIMALUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69042AC952DB005F6DD4 /* MINIMALUITestsLaunchTests.swift */; };
+		321F69152AC95536005F6DD4 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69142AC95536005F6DD4 /* HomePageVC.swift */; };
+		321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */; };
+		321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69182AC95566005F6DD4 /* ReportsPageVC.swift */; };
+		321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		321F68FE2AC952DB005F6DD4 /* MINIMALUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MINIMALUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		321F69022AC952DB005F6DD4 /* MINIMALUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MINIMALUITests.swift; sourceTree = "<group>"; };
 		321F69042AC952DB005F6DD4 /* MINIMALUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MINIMALUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		321F69142AC95536005F6DD4 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePageVC.swift; sourceTree = "<group>"; };
+		321F69182AC95566005F6DD4 /* ReportsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsPageVC.swift; sourceTree = "<group>"; };
+		321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +113,10 @@
 				321F69112AC95344005F6DD4 /* View Controllers */,
 				321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */,
 				321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */,
-				321F68E32AC952DA005F6DD4 /* Main.storyboard */,
 				321F68E92AC952DB005F6DD4 /* Assets.xcassets */,
 				321F68EB2AC952DB005F6DD4 /* LaunchScreen.storyboard */,
 				321F68EE2AC952DB005F6DD4 /* MINIMAL.entitlements */,
 				321F68EF2AC952DB005F6DD4 /* Info.plist */,
-				321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */,
 			);
 			path = MINIMAL;
 			sourceTree = "<group>";
@@ -135,6 +141,10 @@
 		321F69112AC95344005F6DD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
+				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
+				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
+				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -142,6 +152,7 @@
 		321F69122AC95355005F6DD4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				321F68E32AC952DA005F6DD4 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 		321F69132AC9535A005F6DD4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,7 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */,
 				321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */,
+				321F69152AC95536005F6DD4 /* HomePageVC.swift in Sources */,
+				321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */,
+				321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */,
 				321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */,
 				321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */,
 			);
