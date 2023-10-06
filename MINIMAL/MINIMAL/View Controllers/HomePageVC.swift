@@ -56,19 +56,20 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return min(0,3)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let expense = expenseDummyData[indexPath.row]
+        let allExpenses = ExpenseDataManager.fetchAllExpenses()
+        let expense = allExpenses[indexPath.row]
         let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseViewCell
         
-        expenseCell.expenseTitle.text = expense.expenseTitle
-        expenseCell.expenseSubTitle.text = expense.expenseType
-        expenseCell.expenseImgaeView.image = UIImage(named: expense.expenseImageName)
-        expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.expenseAmount))
-        expenseCell.expenseDate.text = expense.expenseDate
+        expenseCell.expenseTitle.text = expense.title
+        expenseCell.expenseSubTitle.text = expense.transactionType
+        expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
+        expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amoount))
+        expenseCell.expenseDate.text = String(format: "MMM dd, yyyy", expense.expenseDate! as CVarArg)
         
         return expenseCell
     }
