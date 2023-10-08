@@ -19,7 +19,8 @@
 		321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */; };
 		321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69182AC95566005F6DD4 /* ReportsPageVC.swift */; };
 		321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */; };
-		326F4CE92ACBD3F2009D070D /* ExpenseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326F4CE82ACBD3F2009D070D /* ExpenseViewCell.swift */; };
+		323D27452AD2155900C288D8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */; };
+		323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */; };
 		32727EA52ACA205500854443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32727EA42ACA205500854443 /* Main.storyboard */; };
 		32A939EC2ACFB9E00005974B /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EA2ACFB9E00005974B /* Expense+CoreDataClass.swift */; };
 		32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EB2ACFB9E00005974B /* Expense+CoreDataProperties.swift */; };
@@ -61,7 +62,8 @@
 		321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePageVC.swift; sourceTree = "<group>"; };
 		321F69182AC95566005F6DD4 /* ReportsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsPageVC.swift; sourceTree = "<group>"; };
 		321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetPageVC.swift; sourceTree = "<group>"; };
-		326F4CE82ACBD3F2009D070D /* ExpenseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewCell.swift; sourceTree = "<group>"; };
+		323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
+		323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
 		32727EA42ACA205500854443 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		32A939EA2ACFB9E00005974B /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		32A939EB2ACFB9E00005974B /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -153,7 +155,8 @@
 				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
 				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
 				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
-				326F4CE82ACBD3F2009D070D /* ExpenseViewCell.swift */,
+				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
+				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */,
 				32727EA52ACA205500854443 /* Main.storyboard in Resources */,
 				321F68ED2AC952DB005F6DD4 /* LaunchScreen.storyboard in Resources */,
 				321F68EA2AC952DB005F6DD4 /* Assets.xcassets in Resources */,
@@ -321,10 +325,10 @@
 				32A939EC2ACFB9E00005974B /* Expense+CoreDataClass.swift in Sources */,
 				321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */,
 				321F69152AC95536005F6DD4 /* HomePageVC.swift in Sources */,
-				326F4CE92ACBD3F2009D070D /* ExpenseViewCell.swift in Sources */,
 				321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */,
 				32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */,
 				321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */,
+				323D27452AD2155900C288D8 /* ExpenseTableViewCell.swift in Sources */,
 				321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */,
 				321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */,
 			);
@@ -497,7 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = MinimalTheme;
 				CODE_SIGN_ENTITLEMENTS = MINIMAL/MINIMAL.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -525,7 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = MinimalTheme;
 				CODE_SIGN_ENTITLEMENTS = MINIMAL/MINIMAL.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

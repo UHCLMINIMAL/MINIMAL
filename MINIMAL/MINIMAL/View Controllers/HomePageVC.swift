@@ -32,6 +32,50 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         Expense(expenseTitle: "Groceries", expenseType: "Cash", expenseAmount: 82, expenseDate: "Sep 10, 2023", expenseImageName: ""),
     ]
     
+    private let addExpenseButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        button.backgroundColor = .systemBlue
+        let image = UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium))
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(.white, for: .normal)
+        
+        // Corner Radius
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.4
+        button.layer.cornerRadius = 30
+        return button
+    }()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return min(0,3)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let allExpenses = ExpenseDataManager.fetchAllExpenses()
+        let expense = allExpenses[indexPath.row]
+        let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
+        
+        expenseCell.expenseTitle.text = expense.title
+        expenseCell.expenseSubTitle.text = expense.transactionType
+        expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
+        expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amoount))
+        expenseCell.expenseDate.text = String(format: "MMM dd, yyyy", expense.expenseDate! as CVarArg)
+        
+        return expenseCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    @objc private func didTapaddExpenseBtn() {
+        let alert = UIAlertController(title: "Add an Expense", message: "Button Tapped", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        present(alert, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,29 +97,20 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         recentExpensesTableView.dataSource = self
         recentExpensesTableView.delegate = self
+        
+        recentExpensesTableView.register(UINib(nibName: "ExpenseTableViewCell", bundle: nil), forCellReuseIdentifier: "expenseCell")
+        
+        view.addSubview(addExpenseButton)
+        addExpenseButton.addTarget(self, action: #selector(didTapaddExpenseBtn), for: .touchUpInside)
+
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(0,3)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let allExpenses = ExpenseDataManager.fetchAllExpenses()
-        let expense = allExpenses[indexPath.row]
-        let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseViewCell
-        
-        expenseCell.expenseTitle.text = expense.title
-        expenseCell.expenseSubTitle.text = expense.transactionType
-        expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
-        expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amoount))
-        expenseCell.expenseDate.text = String(format: "MMM dd, yyyy", expense.expenseDate! as CVarArg)
-        
-        return expenseCell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        addExpenseButton.frame = CGRect(x: view.frame.size.width - 80,
+                                        y: view.frame.height - 150,
+                                        width: 60,
+                                        height: 60)
     }
     
 }
