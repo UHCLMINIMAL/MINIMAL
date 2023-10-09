@@ -151,12 +151,9 @@
 		321F69112AC95344005F6DD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
-				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
+				3222F5A12AD38C9E00EAED5C /* Home */,
 				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
 				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
-				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
-				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -176,6 +173,17 @@
 				321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3222F5A12AD38C9E00EAED5C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
+				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
+				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
+				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		32A939EE2ACFBBC40005974B /* Expense */ = {

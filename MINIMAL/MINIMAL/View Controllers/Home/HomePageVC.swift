@@ -9,13 +9,14 @@ import UIKit
 
 class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var cardView1: UIView!
-    @IBOutlet weak var cardView2: UIView!
-    @IBOutlet weak var cardView3: UIView!
+    @IBOutlet weak var monthlySummary: UIView!
+    @IBOutlet weak var recentExpenses: UIView!
+    @IBOutlet weak var upcomingExpenses: UIView!
+    @IBOutlet weak var paymentTypeSummary: UIView!
     @IBOutlet weak var currentMonthLabel: UILabel!
     @IBOutlet weak var recentExpensesTableView: UITableView!
     
-    struct Expense {
+    /*struct Expense {
         let expenseTitle: String
         let expenseType: String
         let expenseAmount: Float16
@@ -30,7 +31,7 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         Expense(expenseTitle: "Mobile", expenseType: "Credit", expenseAmount: 50, expenseDate: "Sep 30, 2023", expenseImageName: ""),
         Expense(expenseTitle: "Restaurent", expenseType: "Cash", expenseAmount: 76, expenseDate: "Sep 05, 2023", expenseImageName: ""),
         Expense(expenseTitle: "Groceries", expenseType: "Cash", expenseAmount: 82, expenseDate: "Sep 10, 2023", expenseImageName: ""),
-    ]
+    ]*/
     
     private let addExpenseButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -91,9 +92,10 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let formattedDate = dateFormatter.string(from: currentDate)
         currentMonthLabel.text = formattedDate
         
-        cardView1.layer.cornerRadius = 10
-        cardView2.layer.cornerRadius = 10
-        cardView3.layer.cornerRadius = 10
+        monthlySummary.layer.cornerRadius = 10
+        recentExpenses.layer.cornerRadius = 10
+        upcomingExpenses.layer.cornerRadius = 10
+        paymentTypeSummary.layer.cornerRadius = 10
         
         recentExpensesTableView.dataSource = self
         recentExpensesTableView.delegate = self
