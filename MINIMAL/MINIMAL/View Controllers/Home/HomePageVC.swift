@@ -71,10 +71,15 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return 50
     }
     
-    @objc private func didTapaddExpenseBtn() {
-        let alert = UIAlertController(title: "Add an Expense", message: "Button Tapped", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        present(alert, animated: true)
+    @objc private func addExpenseBtnTapped() {
+        // Create an instance of the UIStoryboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
+
+            // Instantiate AddExpensePageVC from the storyboard using its identifier
+            let addExpenseVC = storyboard.instantiateViewController(withIdentifier: "AddExpensePageVC") as! AddExpensePageVC
+
+            // Present the destination view controller
+            self.present(addExpenseVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -103,7 +108,7 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         recentExpensesTableView.register(UINib(nibName: "ExpenseTableViewCell", bundle: nil), forCellReuseIdentifier: "expenseCell")
         
         view.addSubview(addExpenseButton)
-        addExpenseButton.addTarget(self, action: #selector(didTapaddExpenseBtn), for: .touchUpInside)
+        addExpenseButton.addTarget(self, action: #selector(addExpenseBtnTapped), for: .touchDown)
 
     }
     
