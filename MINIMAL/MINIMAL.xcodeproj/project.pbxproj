@@ -21,10 +21,15 @@
 		321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */; };
 		323D27452AD2155900C288D8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */; };
 		323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */; };
+		3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */ = {isa = PBXBuildFile; fileRef = 3242147A2AD8372C0012D648 /* Transaction Date.png */; };
+		3242147D2AD837BC0012D648 /* Category.png in Resources */ = {isa = PBXBuildFile; fileRef = 3242147C2AD837BC0012D648 /* Category.png */; };
+		3242147F2AD838090012D648 /* Repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 3242147E2AD838090012D648 /* Repeat.png */; };
 		32727EA52ACA205500854443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32727EA42ACA205500854443 /* Main.storyboard */; };
 		32A939EC2ACFB9E00005974B /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EA2ACFB9E00005974B /* Expense+CoreDataClass.swift */; };
 		32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EB2ACFB9E00005974B /* Expense+CoreDataProperties.swift */; };
 		32A939F02ACFBBEC0005974B /* ExpenseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EF2ACFBBEC0005974B /* ExpenseDataManager.swift */; };
+		32AB48D12AD95B3300EF5571 /* CustomOverlayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48CF2AD95B3300EF5571 /* CustomOverlayPopUpVC.swift */; };
+		32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AB48D02AD95B3300EF5571 /* CustomOverlayPopUpVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +69,15 @@
 		321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetPageVC.swift; sourceTree = "<group>"; };
 		323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
+		3242147A2AD8372C0012D648 /* Transaction Date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transaction Date.png"; sourceTree = "<group>"; };
+		3242147C2AD837BC0012D648 /* Category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category.png; sourceTree = "<group>"; };
+		3242147E2AD838090012D648 /* Repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Repeat.png; sourceTree = "<group>"; };
 		32727EA42ACA205500854443 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		32A939EA2ACFB9E00005974B /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		32A939EB2ACFB9E00005974B /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		32A939EF2ACFBBEC0005974B /* ExpenseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataManager.swift; sourceTree = "<group>"; };
+		32AB48CF2AD95B3300EF5571 /* CustomOverlayPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOverlayPopUpVC.swift; sourceTree = "<group>"; };
+		32AB48D02AD95B3300EF5571 /* CustomOverlayPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomOverlayPopUpVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,12 +188,23 @@
 		3222F5A12AD38C9E00EAED5C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				32AB48D32AD96C0300EF5571 /* Add Expense */,
+				3242145F2AD832A60012D648 /* Images */,
 				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
 				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
 				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
-				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		3242145F2AD832A60012D648 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3242147C2AD837BC0012D648 /* Category.png */,
+				3242147E2AD838090012D648 /* Repeat.png */,
+				3242147A2AD8372C0012D648 /* Transaction Date.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		32A939EE2ACFBBC40005974B /* Expense */ = {
@@ -194,6 +215,16 @@
 				32A939EF2ACFBBEC0005974B /* ExpenseDataManager.swift */,
 			);
 			path = Expense;
+			sourceTree = "<group>";
+		};
+		32AB48D32AD96C0300EF5571 /* Add Expense */ = {
+			isa = PBXGroup;
+			children = (
+				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
+				32AB48CF2AD95B3300EF5571 /* CustomOverlayPopUpVC.swift */,
+				32AB48D02AD95B3300EF5571 /* CustomOverlayPopUpVC.xib */,
+			);
+			path = "Add Expense";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +332,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */,
+				3242147D2AD837BC0012D648 /* Category.png in Resources */,
+				3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */,
+				32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */,
 				32727EA52ACA205500854443 /* Main.storyboard in Resources */,
+				3242147F2AD838090012D648 /* Repeat.png in Resources */,
 				321F68ED2AC952DB005F6DD4 /* LaunchScreen.storyboard in Resources */,
 				321F68EA2AC952DB005F6DD4 /* Assets.xcassets in Resources */,
 			);
@@ -339,6 +374,7 @@
 				323D27452AD2155900C288D8 /* ExpenseTableViewCell.swift in Sources */,
 				321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */,
 				321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */,
+				32AB48D12AD95B3300EF5571 /* CustomOverlayPopUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
