@@ -15,6 +15,9 @@ class CustomOverlayPopUpVC: UIViewController {
     @IBOutlet weak var saveTransactionDate: UIButton!
     @IBOutlet weak var transactionDatePicker: UIDatePicker!
     
+    // Callback closure for date selection
+    var dateSelectedCallback: ((Date) -> Void)?
+    
     init() {
         super.init(nibName:"CustomOverlayPopUpVC", bundle: nil)
         self.modalPresentationStyle = .overFullScreen
@@ -31,6 +34,9 @@ class CustomOverlayPopUpVC: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
+        // Call the callback closure with the selected date
+        dateSelectedCallback?(transactionDatePicker.date)
+        
         hide()
     }
     

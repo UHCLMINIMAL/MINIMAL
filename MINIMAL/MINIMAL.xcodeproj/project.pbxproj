@@ -30,6 +30,10 @@
 		32A939F02ACFBBEC0005974B /* ExpenseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EF2ACFBBEC0005974B /* ExpenseDataManager.swift */; };
 		32AB48D12AD95B3300EF5571 /* CustomOverlayPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48CF2AD95B3300EF5571 /* CustomOverlayPopUpVC.swift */; };
 		32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AB48D02AD95B3300EF5571 /* CustomOverlayPopUpVC.xib */; };
+		32AB48D62AD96EB600EF5571 /* AddExpenseFieldsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48D42AD96EB600EF5571 /* AddExpenseFieldsTableCell.swift */; };
+		32AB48D72AD96EB600EF5571 /* addExpenseFieldsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */; };
+		32AB48DA2ADAE52C00EF5571 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48D92ADAE52C00EF5571 /* Utils.swift */; };
+		32AB48DC2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		32A939EF2ACFBBEC0005974B /* ExpenseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataManager.swift; sourceTree = "<group>"; };
 		32AB48CF2AD95B3300EF5571 /* CustomOverlayPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOverlayPopUpVC.swift; sourceTree = "<group>"; };
 		32AB48D02AD95B3300EF5571 /* CustomOverlayPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomOverlayPopUpVC.xib; sourceTree = "<group>"; };
+		32AB48D42AD96EB600EF5571 /* AddExpenseFieldsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseFieldsTableCell.swift; sourceTree = "<group>"; };
+		32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addExpenseFieldsTableCell.xib; sourceTree = "<group>"; };
+		32AB48D92ADAE52C00EF5571 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepeatPeriodVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +172,7 @@
 				3222F5A12AD38C9E00EAED5C /* Home */,
 				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
 				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
+				32AB48D92ADAE52C00EF5571 /* Utils.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -223,6 +232,9 @@
 				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
 				32AB48CF2AD95B3300EF5571 /* CustomOverlayPopUpVC.swift */,
 				32AB48D02AD95B3300EF5571 /* CustomOverlayPopUpVC.xib */,
+				32AB48D42AD96EB600EF5571 /* AddExpenseFieldsTableCell.swift */,
+				32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */,
+				32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */,
 			);
 			path = "Add Expense";
 			sourceTree = "<group>";
@@ -332,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */,
+				32AB48D72AD96EB600EF5571 /* addExpenseFieldsTableCell.xib in Resources */,
 				3242147D2AD837BC0012D648 /* Category.png in Resources */,
 				3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */,
 				32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */,
@@ -366,8 +379,11 @@
 				321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */,
 				32A939F02ACFBBEC0005974B /* ExpenseDataManager.swift in Sources */,
 				32A939EC2ACFB9E00005974B /* Expense+CoreDataClass.swift in Sources */,
+				32AB48DA2ADAE52C00EF5571 /* Utils.swift in Sources */,
 				321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */,
+				32AB48DC2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift in Sources */,
 				321F69152AC95536005F6DD4 /* HomePageVC.swift in Sources */,
+				32AB48D62AD96EB600EF5571 /* AddExpenseFieldsTableCell.swift in Sources */,
 				321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */,
 				32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */,
 				321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */,
