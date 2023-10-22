@@ -1,20 +1,20 @@
 //
-//  BudgetPageVC.swift
+//  budgetPlanVC.swift
 //  MINIMAL
 //
-//  Created by Shiva Raj on 10/1/23.
+//  Created by Mohammed, Tahoor Ahmed on 10/22/23.
 //
 
 import UIKit
 
-class BudgetPageVC: UIViewController {
+class budgetPlanVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation

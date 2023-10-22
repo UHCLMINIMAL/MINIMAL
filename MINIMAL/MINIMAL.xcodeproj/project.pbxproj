@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0304EA2A2AE56FA10040529E /* budgetPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304EA282AE56FA10040529E /* budgetPlanVC.swift */; };
+		0304EA2B2AE56FA10040529E /* budgetPlanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0304EA292AE56FA10040529E /* budgetPlanVC.xib */; };
+		0304EA2E2AE56FE80040529E /* budgetAnalysisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0304EA2C2AE56FE80040529E /* budgetAnalysisVC.swift */; };
+		0304EA2F2AE56FE80040529E /* budgetAnalysisVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0304EA2D2AE56FE80040529E /* budgetAnalysisVC.xib */; };
+		0304EA322AE591000040529E /* MonthYearWheelPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 0304EA312AE591000040529E /* MonthYearWheelPicker */; };
 		321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */; };
 		321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */; };
 		321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */; };
@@ -41,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0304EA282AE56FA10040529E /* budgetPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = budgetPlanVC.swift; sourceTree = "<group>"; };
+		0304EA292AE56FA10040529E /* budgetPlanVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = budgetPlanVC.xib; sourceTree = "<group>"; };
+		0304EA2C2AE56FE80040529E /* budgetAnalysisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = budgetAnalysisVC.swift; sourceTree = "<group>"; };
+		0304EA2D2AE56FE80040529E /* budgetAnalysisVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = budgetAnalysisVC.xib; sourceTree = "<group>"; };
 		321F68DA2AC952DA005F6DD4 /* MINIMAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINIMAL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0304EA322AE591000040529E /* MonthYearWheelPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +97,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0304EA272AE56F300040529E /* budgetVCs */ = {
+			isa = PBXGroup;
+			children = (
+				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
+				0304EA282AE56FA10040529E /* budgetPlanVC.swift */,
+				0304EA292AE56FA10040529E /* budgetPlanVC.xib */,
+				0304EA2C2AE56FE80040529E /* budgetAnalysisVC.swift */,
+				0304EA2D2AE56FE80040529E /* budgetAnalysisVC.xib */,
+			);
+			path = budgetVCs;
+			sourceTree = "<group>";
+		};
 		321F68D12AC952DA005F6DD4 = {
 			isa = PBXGroup;
 			children = (
@@ -143,10 +165,10 @@
 		321F69112AC95344005F6DD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0304EA272AE56F300040529E /* budgetVCs */,
 				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
 				321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */,
 				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
-				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
 				326F4CE82ACBD3F2009D070D /* ExpenseViewCell.swift */,
 			);
 			path = "View Controllers";
@@ -184,6 +206,9 @@
 			dependencies = (
 			);
 			name = MINIMAL;
+			packageProductDependencies = (
+				0304EA312AE591000040529E /* MonthYearWheelPicker */,
+			);
 			productName = MINIMAL;
 			productReference = 321F68DA2AC952DA005F6DD4 /* MINIMAL.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +280,9 @@
 				Base,
 			);
 			mainGroup = 321F68D12AC952DA005F6DD4;
+			packageReferences = (
+				0304EA302AE590FF0040529E /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */,
+			);
 			productRefGroup = 321F68DB2AC952DA005F6DD4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -271,9 +299,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0304EA2B2AE56FA10040529E /* budgetPlanVC.xib in Resources */,
 				32727EA52ACA205500854443 /* Main.storyboard in Resources */,
 				321F68ED2AC952DB005F6DD4 /* LaunchScreen.storyboard in Resources */,
 				321F68EA2AC952DB005F6DD4 /* Assets.xcassets in Resources */,
+				0304EA2F2AE56FE80040529E /* budgetAnalysisVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +329,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */,
+				0304EA2A2AE56FA10040529E /* budgetPlanVC.swift in Sources */,
 				321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */,
+				0304EA2E2AE56FE80040529E /* budgetAnalysisVC.swift in Sources */,
 				321F69152AC95536005F6DD4 /* HomePageVC.swift in Sources */,
 				326F4CE92ACBD3F2009D070D /* ExpenseViewCell.swift in Sources */,
 				321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */,
@@ -642,6 +674,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0304EA302AE590FF0040529E /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bendodson/MonthYearWheelPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0304EA312AE591000040529E /* MonthYearWheelPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0304EA302AE590FF0040529E /* XCRemoteSwiftPackageReference "MonthYearWheelPicker" */;
+			productName = MonthYearWheelPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */ = {

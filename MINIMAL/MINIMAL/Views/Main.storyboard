@@ -176,7 +176,7 @@
         <!--Budget-->
         <scene sceneID="xTs-2v-y9h">
             <objects>
-                <viewController id="52t-iQ-hQ6" sceneMemberID="viewController">
+                <viewController id="52t-iQ-hQ6" customClass="BudgetPageVC" customModule="MINIMAL" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xc5-Rl-GVx">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,8 +239,8 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
-                                        <rect key="frame" x="0.0" y="115" width="388" height="51"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
+                                        <rect key="frame" x="0.0" y="173.66666666666666" width="388" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yAi-fc-3Yn"/>
                                         </constraints>
@@ -248,12 +248,29 @@
                                             <segment title="Plan"/>
                                             <segment title="Analysis"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="budgetSegmentControl:" destination="52t-iQ-hQ6" eventType="valueChanged" id="qJA-Rv-ovE"/>
+                                        </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-Hc-fFc">
+                                        <rect key="frame" x="0.0" y="302.33333333333331" width="388" height="40"/>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="rC3-tp-Idc"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="budgetMonthPicker:" destination="52t-iQ-hQ6" eventType="touchUpInside" id="32M-Jv-aRo"/>
+                                        </connections>
+                                    </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-Go-HI8">
-                                        <rect key="frame" x="0.0" y="185" width="388" height="584"/>
+                                        <rect key="frame" x="0.0" y="421" width="388" height="348"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jD-Rj8">
-                                                <rect key="frame" x="0.0" y="0.0" width="388" height="584"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="388" height="496"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -271,8 +288,12 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="RzS-Go-HI8" secondAttribute="bottom" id="2Nw-3c-t6g"/>
                                     <constraint firstAttribute="trailing" secondItem="RzS-Go-HI8" secondAttribute="trailing" id="4dK-S8-AjN"/>
+                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="yI5-Hc-fFc" secondAttribute="bottom" constant="10" id="GW4-sr-uPy"/>
+                                    <constraint firstItem="yI5-Hc-fFc" firstAttribute="top" secondItem="4mu-u1-w0j" secondAttribute="bottom" constant="10" id="RUv-Hc-nNN"/>
+                                    <constraint firstItem="yI5-Hc-fFc" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" constant="10" id="aEC-Tp-dqa"/>
+                                    <constraint firstItem="4mu-u1-w0j" firstAttribute="top" secondItem="DCi-AT-jsY" secondAttribute="bottom" constant="10" id="rw6-Lm-UKU"/>
+                                    <constraint firstAttribute="trailing" secondItem="yI5-Hc-fFc" secondAttribute="trailing" constant="10" id="vbe-6F-w8S"/>
                                     <constraint firstItem="RzS-Go-HI8" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" id="z2k-nc-Edw"/>
-                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="4mu-u1-w0j" secondAttribute="bottom" constant="10" id="zws-1C-GX8"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -292,6 +313,10 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Budget" image="dollarsign.square" catalog="system" id="lQe-26-ebZ"/>
+                    <connections>
+                        <outlet property="budgetMonthPickerText" destination="yI5-Hc-fFc" id="YVh-Xw-cm2"/>
+                        <outlet property="budgetViewContainer" destination="9KK-jD-Rj8" id="BQ9-Tc-8aL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gda-Wk-KYr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -327,7 +352,7 @@
             <objects>
                 <viewController id="EQJ-Fu-hfT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L4Q-s8-mY4">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W11-3c-NKl">
@@ -352,7 +377,7 @@
             <objects>
                 <viewController id="1dw-RE-Doe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TrX-tt-axe">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gL-JL-Ptd">
@@ -401,7 +426,7 @@
             <objects>
                 <viewController id="oOt-XH-7Lf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y7e-4O-3pR">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="multiply" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eXG-f5-7ol">
@@ -453,7 +478,7 @@
                                 <color key="backgroundColor" red="0.69081313020000001" green="0.96611279250000004" blue="0.69596413759999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-MU-tvq">
-                                <rect key="frame" x="140" y="396" width="809" height="37"/>
+                                <rect key="frame" x="140" y="396" width="213" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opV-9u-9Ll">
