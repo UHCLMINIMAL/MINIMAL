@@ -203,8 +203,8 @@
                                                     <constraint firstAttribute="height" constant="40" id="NW2-7Z-SB0"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
+                                                <color key="textColor" red="0.97647058823529409" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="highlightedColor" red="0.97647058823529409" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyQ-0h-SYr">
                                                 <rect key="frame" x="343" y="5" width="40" height="40"/>
@@ -239,12 +239,41 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hcd-PP-FvO">
-                                        <rect key="frame" x="0.0" y="395" width="388" height="374"/>
-                                        <color key="backgroundColor" systemColor="systemBrownColor"/>
-                                    </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
+                                        <rect key="frame" x="0.0" y="115" width="388" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="yAi-fc-3Yn"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Plan"/>
+                                            <segment title="Analysis"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-Go-HI8">
+                                        <rect key="frame" x="0.0" y="185" width="388" height="584"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jD-Rj8">
+                                                <rect key="frame" x="0.0" y="0.0" width="388" height="584"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9KK-jD-Rj8" firstAttribute="leading" secondItem="Cxf-ol-09N" secondAttribute="leading" id="gVx-vV-9Ia"/>
+                                            <constraint firstItem="9KK-jD-Rj8" firstAttribute="trailing" secondItem="Cxf-ol-09N" secondAttribute="trailing" id="lN3-ZG-nvi"/>
+                                            <constraint firstItem="9KK-jD-Rj8" firstAttribute="top" secondItem="Cxf-ol-09N" secondAttribute="top" id="mCZ-aB-VNQ"/>
+                                            <constraint firstItem="9KK-jD-Rj8" firstAttribute="bottom" secondItem="Cxf-ol-09N" secondAttribute="bottom" id="nif-8S-ZoX"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="eQK-eZ-Rui"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="Cxf-ol-09N"/>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352941176465" green="0.88627450980392153" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RzS-Go-HI8" secondAttribute="bottom" id="2Nw-3c-t6g"/>
+                                    <constraint firstAttribute="trailing" secondItem="RzS-Go-HI8" secondAttribute="trailing" id="4dK-S8-AjN"/>
+                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" id="z2k-nc-Edw"/>
+                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="4mu-u1-w0j" secondAttribute="bottom" constant="10" id="zws-1C-GX8"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bRA-3Q-dKC"/>
@@ -298,7 +327,7 @@
             <objects>
                 <viewController id="EQJ-Fu-hfT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L4Q-s8-mY4">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W11-3c-NKl">
@@ -323,7 +352,7 @@
             <objects>
                 <viewController id="1dw-RE-Doe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TrX-tt-axe">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gL-JL-Ptd">
@@ -372,7 +401,7 @@
             <objects>
                 <viewController id="oOt-XH-7Lf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y7e-4O-3pR">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="multiply" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eXG-f5-7ol">
@@ -424,7 +453,7 @@
                                 <color key="backgroundColor" red="0.69081313020000001" green="0.96611279250000004" blue="0.69596413759999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="qBH-MU-tvq">
-                                <rect key="frame" x="140" y="396" width="213" height="37"/>
+                                <rect key="frame" x="140" y="396" width="809" height="37"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opV-9u-9Ll">
@@ -475,9 +504,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
