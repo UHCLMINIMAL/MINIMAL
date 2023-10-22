@@ -7,15 +7,20 @@
 
 import UIKit
 
-class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+protocol ExpenseAddedDelegate {
+    func didSavedExpense()
+}
+
+class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var expenseAmount: UITextField!
     @IBOutlet weak var optionsTableView: UITableView!
     @IBOutlet weak var paymentTypeControl: UISegmentedControl!
-    var optionsList:[String] = ["Category", "Transaction Date", "Repeat"]
-    var optionsListValues: [String?] = ["","",""]
+    var optionsList:[String] = ["Title", "Category", "Transaction Date", "Repeat"]
+    var optionsListValues: [String?] = ["","","",""]
     let utils = Utils()
+    var delegate: ExpenseAddedDelegate? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +28,7 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         optionsTableView.delegate = self
         optionsTableView.dataSource = self
         optionsTableView.register(UINib(nibName: "addExpenseFieldsTableCell", bundle: nil), forCellReuseIdentifier: "addExpenseOptionsCell")
-        optionsListValues = ["Category", utils.formattedDate(Date()), "Never"]
+        optionsListValues = [nil,"Category", utils.formattedDate(Date()), "Never"]
     }
     
     private func setpaymentTypeControlUI() {
@@ -43,11 +48,6 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         ]
         
         paymentTypeControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
-    }
-    
-    
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,40 +72,99 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if optionsList[indexPath.row] == "Transaction Date" {
+        
+        switch optionsList[indexPath.row] {
+        
+        case "Transaction Date":
             let transactionDatePickerView = CustomOverlayPopUpVC()
             
             // Set up the callback closure to capture the selected date
             transactionDatePickerView.dateSelectedCallback = { [weak self] selectedDate in
                 // Handle the selected date in your view controller
-                self?.optionsListValues[1] = self?.utils.formattedDate(selectedDate)
+                self?.optionsListValues[2] = self?.utils.formattedDate(selectedDate)
                 self?.optionsTableView.reloadData()
             }
             
             transactionDatePickerView.appear(sender: self)
-        } else if optionsList[indexPath.row] == "Repeat" {
+            break
+            
+        case "Repeat":
             if let transactionRepeatPeriodVC = storyboard?.instantiateViewController(withIdentifier: "TransactionRepeatPeriodVC") as? TransactionRepeatPeriodVC {
                 
                 transactionRepeatPeriodVC.dateSelectedCallback = { [weak self] selectedCycle in
                     // Handle the selected date in your view controller
-                    self?.optionsListValues[2] = selectedCycle
+                    self?.optionsListValues[3] = selectedCycle
                     self?.optionsTableView.reloadData()
                     
                 }
                 
                 self.present(transactionRepeatPeriodVC, animated: true, completion: nil)
             }
+            break
+            
+        case "Title":
+            let titleAlertController = UIAlertController(title: "Enter Title for your Expense", message: "Please enter a Value", preferredStyle: .alert)
+            
+            //adding a text field to the alert controller
+            titleAlertController.addTextField { textField in
+                textField.placeholder = "Your title here"
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let saveAction = UIAlertAction(title: "Save", style: .default) { [weak titleAlertController, weak self] _ in
+                if let text = titleAlertController?.textFields?.first?.text {
+                    self?.optionsListValues[0] = text
+                    self?.optionsTableView.reloadData()
+                }
+            }
+            titleAlertController.addAction(cancelAction)
+            titleAlertController.addAction(saveAction)
+            
+            present(titleAlertController,animated: true,completion: nil)
+            break
+            
+        default:
+            break
         }
         
         // Deselect the row to remove the highlight
         optionsTableView.deselectRow(at: indexPath, animated: true)
     }
     
-//    func handleSelectedDate(_ date: Date) {
-//
-//        optionsListValues[1] = utils.formattedDate(date)
-//
-//        // Reload the table view
-//        optionsTableView.reloadData()
-//    }
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func addExpenseBtnTapped(_ sender: UIButton) {
+        
+        var expenseDateValue: Date = Date()
+
+        if let unwrappedDateString = optionsListValues[2] {
+            let dateFormat = "MMM dd, yyyy"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat
+
+            if let date = dateFormatter.date(from: unwrappedDateString) {
+                // Successfully converted the unwrapped date string to a Date
+                expenseDateValue = date
+            } else {
+                print("Unable to convert the date string.")
+            }
+        } else {
+            print("Date string is nil.")
+        }
+        
+        ExpenseDataManadger.saveExpense(
+            title: optionsListValues[0] ?? "Expense",
+            transactionType: paymentTypeControl.titleForSegment(at: paymentTypeControl.selectedSegmentIndex) ?? "Card",
+            amount: Float(expenseAmount.text ?? "0") ?? 0,
+            category: optionsListValues[1] ?? "Category",
+            expenseDate: expenseDateValue
+        )
+        
+        self.dismiss(animated: true)
+        delegate?.didSavedExpense()
+        
+    }
 }

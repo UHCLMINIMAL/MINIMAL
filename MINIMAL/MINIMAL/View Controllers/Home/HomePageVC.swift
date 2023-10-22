@@ -7,31 +7,19 @@
 
 import UIKit
 
-class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, ExpenseAddedDelegate {
+    
     @IBOutlet weak var monthlySummary: UIView!
     @IBOutlet weak var recentExpenses: UIView!
     @IBOutlet weak var upcomingExpenses: UIView!
     @IBOutlet weak var paymentTypeSummary: UIView!
     @IBOutlet weak var currentMonthLabel: UILabel!
     @IBOutlet weak var recentExpensesTableView: UITableView!
+    private var allExpenses = ExpenseDataManadger.fetchAllExpenses()
     
-    /*struct Expense {
-        let expenseTitle: String
-        let expenseType: String
-        let expenseAmount: Float16
-        let expenseDate: String
-        let expenseImageName: String
+    func didSavedExpense() {
+        recentExpensesTableView.reloadData()
     }
-    
-    let expenseDummyData: [Expense] = [
-        Expense(expenseTitle: "Vacation", expenseType: "Cash", expenseAmount: 50, expenseDate: "Sep 30, 2023", expenseImageName: ""),
-        Expense(expenseTitle: "Hotel", expenseType: "Credit", expenseAmount: 150, expenseDate: "Sep 10, 2023", expenseImageName: ""),
-        Expense(expenseTitle: "Rent", expenseType: "Credit", expenseAmount: 1200, expenseDate: "Sep 03, 2023", expenseImageName: ""),
-        Expense(expenseTitle: "Mobile", expenseType: "Credit", expenseAmount: 50, expenseDate: "Sep 30, 2023", expenseImageName: ""),
-        Expense(expenseTitle: "Restaurent", expenseType: "Cash", expenseAmount: 76, expenseDate: "Sep 05, 2023", expenseImageName: ""),
-        Expense(expenseTitle: "Groceries", expenseType: "Cash", expenseAmount: 82, expenseDate: "Sep 10, 2023", expenseImageName: ""),
-    ]*/
     
     private let addExpenseButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -49,12 +37,11 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(0,3)
+        return min(3,allExpenses.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let allExpenses = ExpenseDataManager.fetchAllExpenses()
+
         let expense = allExpenses[indexPath.row]
         let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
         
@@ -72,16 +59,17 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc private func addExpenseBtnTapped() {
-        // Create an instance of the UIStoryboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // Replace "Main" with your storyboard name
 
-            // Instantiate AddExpensePageVC from the storyboard using its identifier
-            let addExpenseVC = storyboard.instantiateViewController(withIdentifier: "AddExpensePageVC") as! AddExpensePageVC
-
-            // Present the destination view controller
+        if let addExpenseVC = storyboard.instantiateViewController(withIdentifier: "AddExpensePageVC") as? AddExpensePageVC {
+            addExpenseVC.delegate = self
             self.present(addExpenseVC, animated: true, completion: nil)
+        } else {
+            // Handle the case where view controller instantiation fails
+            print("Failed to instantiate AddExpensePageVC")
+        }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -109,7 +97,6 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         view.addSubview(addExpenseButton)
         addExpenseButton.addTarget(self, action: #selector(addExpenseBtnTapped), for: .touchDown)
-
     }
     
     override func viewDidLayoutSubviews() {
