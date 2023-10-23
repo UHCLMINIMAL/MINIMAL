@@ -17,7 +17,7 @@ class ExpenseDataManadger: NSObject {
             let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
             
             // Create a sort descriptor to sort by the 'expenseDate' attribute in ascending order
-            let sortDescriptor = NSSortDescriptor(key: "expenseDate", ascending: false)
+            let sortDescriptor = NSSortDescriptor(key: "createdOn", ascending: false)
             fetchRequest.sortDescriptors = [sortDescriptor]
             
             do {
@@ -44,6 +44,7 @@ class ExpenseDataManadger: NSObject {
                 newExpense.category = category
                 newExpense.expenseDate = expenseDate
                 newExpense.updatedOn = Date()
+                newExpense.createdOn = Date()
                 
                 //Saving the context to persist the data
                 do {

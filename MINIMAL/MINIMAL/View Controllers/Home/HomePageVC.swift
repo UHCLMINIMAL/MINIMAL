@@ -18,6 +18,8 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var upComingExpensesTableView: UITableView!
     @IBOutlet weak var paymentTypeTableView: UITableView!
     private var allExpenses = ExpenseDataManadger.fetchAllExpenses()
+    private var recentExpensesFiltered: [Expense] = []
+    private var upComingExpensesFiltered: [Expense] = []
     private var transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountAndCountByTransactionType()
     let currentDate = Date()
     let utils = Utils()
@@ -47,10 +49,12 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == recentExpensesTableView {
-            return min(3,allExpenses.count)
+            recentExpensesFiltered = allExpenses.filter { $0.expenseDate ?? Date() <= currentDate }
+            return min(3,recentExpensesFiltered.count)
         }
         if tableView == upComingExpensesTableView {
-            return 3
+            upComingExpensesFiltered = allExpenses.filter { $0.expenseDate ?? Date() >= currentDate }
+            return min(3,upComingExpensesFiltered.count)
         }
         if tableView == paymentTypeTableView {
             return transactionTypeTotals.count
@@ -62,7 +66,6 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
         switch tableView {
         case recentExpensesTableView:
-            let recentExpensesFiltered = allExpenses.filter { $0.expenseDate ?? Date() <= currentDate }
             let expense = recentExpensesFiltered[indexPath.row]
             let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
             
@@ -75,7 +78,6 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             return expenseCell
             
         case upComingExpensesTableView:
-            let upComingExpensesFiltered = allExpenses.filter { $0.expenseDate ?? Date() >= currentDate }
             let expense = upComingExpensesFiltered[indexPath.row]
             let expenseCell = upComingExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
             

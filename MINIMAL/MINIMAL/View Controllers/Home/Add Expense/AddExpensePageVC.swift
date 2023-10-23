@@ -138,6 +138,22 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBAction func addExpenseBtnTapped(_ sender: UIButton) {
         
+        // Check if title, amount, and category fields are not empty
+        guard let title = optionsListValues[0], !title.isEmpty,
+              let category = optionsListValues[1], !category.isEmpty,
+              let amountString = expenseAmount.text, !amountString.isEmpty,
+              let paymentType = paymentTypeControl.titleForSegment(at: paymentTypeControl.selectedSegmentIndex)
+        else {
+            // Handle the case where one or more required fields are empty
+            let missingFieldsAlert = UIAlertController(title: "Missing Fields", message: "Please fill in all the details", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            missingFieldsAlert.addAction(cancelAction)
+            
+            present(missingFieldsAlert,animated: true,completion: nil)
+            return
+        }
+        
         var expenseDateValue: Date = Date()
         
         if let unwrappedDateString = optionsListValues[2] {
@@ -156,16 +172,16 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         ExpenseDataManadger.saveExpense(
-                title: optionsListValues[0] ?? "Expense",
-                transactionType: paymentTypeControl.titleForSegment(at: paymentTypeControl.selectedSegmentIndex) ?? "Card",
-                amount: Float(expenseAmount.text ?? "0") ?? 0,
-                category: optionsListValues[1] ?? "Category",
-                expenseDate: expenseDateValue) {
-                    // This code will be executed after the expense is saved
-                    DispatchQueue.main.async {
-                       self.dismiss(animated: true)
-                       self.delegate?.didSavedExpense()
-                   }
-                }
+            title: title,
+            transactionType: paymentType,
+            amount: Float(amountString) ?? 0,
+            category: category,
+            expenseDate: expenseDateValue) {
+                // This code will be executed after the expense is saved
+                DispatchQueue.main.async {
+                   self.dismiss(animated: true)
+                   self.delegate?.didSavedExpense()
+               }
+            }
     }
 }
