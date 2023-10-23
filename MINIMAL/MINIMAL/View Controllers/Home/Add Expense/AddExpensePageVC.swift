@@ -28,7 +28,7 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         optionsTableView.delegate = self
         optionsTableView.dataSource = self
         optionsTableView.register(UINib(nibName: "addExpenseFieldsTableCell", bundle: nil), forCellReuseIdentifier: "addExpenseOptionsCell")
-        optionsListValues = [nil,"Category", utils.formattedDate(Date()), "Never"]
+        optionsListValues = [nil,"Category", utils.formattedDate(Date(), format: "MMM dd, yyyy"), "Never"]
     }
     
     private func setpaymentTypeControlUI() {
@@ -81,7 +81,7 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             // Set up the callback closure to capture the selected date
             transactionDatePickerView.dateSelectedCallback = { [weak self] selectedDate in
                 // Handle the selected date in your view controller
-                self?.optionsListValues[2] = self?.utils.formattedDate(selectedDate)
+                self?.optionsListValues[2] = self?.utils.formattedDate(selectedDate, format: "MMM dd, yyyy")
                 self?.optionsTableView.reloadData()
             }
             
@@ -139,12 +139,12 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBAction func addExpenseBtnTapped(_ sender: UIButton) {
         
         var expenseDateValue: Date = Date()
-
+        
         if let unwrappedDateString = optionsListValues[2] {
             let dateFormat = "MMM dd, yyyy"
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = dateFormat
-
+            
             if let date = dateFormatter.date(from: unwrappedDateString) {
                 // Successfully converted the unwrapped date string to a Date
                 expenseDateValue = date
@@ -156,15 +156,16 @@ class AddExpensePageVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         ExpenseDataManadger.saveExpense(
-            title: optionsListValues[0] ?? "Expense",
-            transactionType: paymentTypeControl.titleForSegment(at: paymentTypeControl.selectedSegmentIndex) ?? "Card",
-            amount: Float(expenseAmount.text ?? "0") ?? 0,
-            category: optionsListValues[1] ?? "Category",
-            expenseDate: expenseDateValue
-        )
-        
-        self.dismiss(animated: true)
-        delegate?.didSavedExpense()
-        
+                title: optionsListValues[0] ?? "Expense",
+                transactionType: paymentTypeControl.titleForSegment(at: paymentTypeControl.selectedSegmentIndex) ?? "Card",
+                amount: Float(expenseAmount.text ?? "0") ?? 0,
+                category: optionsListValues[1] ?? "Category",
+                expenseDate: expenseDateValue) {
+                    // This code will be executed after the expense is saved
+                    DispatchQueue.main.async {
+                       self.dismiss(animated: true)
+                       self.delegate?.didSavedExpense()
+                   }
+                }
     }
 }

@@ -100,38 +100,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0ABC8BCD-63AD-4586-9C50-9372EC9209C0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MINIMAL/Models/Expense/ExpenseDataManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "saveExpense(title:transactionType:amount:category:expenseDate:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "70248FEE-F036-4A0A-B70D-E269B7B061C7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MINIMAL/View Controllers/Home/Add Expense/AddExpensePageVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "addExpenseBtnTapped(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "393097C4-86B8-4127-B2A1-D606B0878609"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -139,8 +107,8 @@
             filePath = "MINIMAL/Models/Expense/ExpenseDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "fetchAllExpenses()"
             landmarkType = "7">
          </BreakpointContent>
@@ -149,14 +117,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5F1A6B0D-329A-4D0D-B81B-C1ABBDDFABC2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MINIMAL/View Controllers/Home/HomePageVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "didSavedExpense()"
             landmarkType = "7">
             <Locations>
@@ -219,9 +187,9 @@
             filePath = "MINIMAL/Models/Expense/ExpenseDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "saveExpense(title:transactionType:amount:category:expenseDate:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "saveExpense(title:transactionType:amount:category:expenseDate:competion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
