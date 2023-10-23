@@ -56,7 +56,7 @@ class ExpenseDataManadger: NSObject {
         }
     }
     
-    static func calculateTotalAmountByTransactionType() -> [String: Float] {
+    static func calculateTotalAmountAndCountByTransactionType() -> [String: (totalAmount: Float, count: Int)] {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedContext = appDelegate.persistentContainer.viewContext
             
@@ -76,20 +76,19 @@ class ExpenseDataManadger: NSObject {
             do {
                 let expenses = try managedContext.fetch(fetchRequest)
                 
-                // Create a dictionary to store the total amount for each transaction type
-                var totalAmountByTransactionType: [String: Float] = [:]
-                
-                for expense in expenses {
+                // Use reduce to calculate total amount and count
+                let totalAmountAndCountByTransactionType = expenses.reduce(into: [String: (totalAmount: Float, count: Int)]()) { result, expense in
                     if let transactionType = expense.transactionType {
                         let amount = expense.amount
-                        totalAmountByTransactionType[transactionType, default: 0.0] += amount
+                        result[transactionType, default: (totalAmount: 0, count: 0)].totalAmount += amount
+                        result[transactionType, default: (totalAmount: 0, count: 0)].count += 1
                     }
                 }
                 
-                return totalAmountByTransactionType
+                return totalAmountAndCountByTransactionType
                 
             } catch {
-                print("Error calculating total amount by transaction type: \(error)")
+                print("Error calculating total amount and count by transaction type: \(error)")
             }
         }
         

@@ -18,13 +18,13 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var upComingExpensesTableView: UITableView!
     @IBOutlet weak var paymentTypeTableView: UITableView!
     private var allExpenses = ExpenseDataManadger.fetchAllExpenses()
-    private var transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountByTransactionType()
+    private var transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountAndCountByTransactionType()
     let currentDate = Date()
     let utils = Utils()
     
     func didSavedExpense() {
         allExpenses = ExpenseDataManadger.fetchAllExpenses()
-        transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountByTransactionType()
+        transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountAndCountByTransactionType()
         recentExpensesTableView.reloadData()
         upComingExpensesTableView.reloadData()
         paymentTypeTableView.reloadData()
@@ -92,13 +92,14 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             // Assuming you have an array of transaction types
             let transactionTypes = Array(transactionTypeTotals.keys)
             let transactionType = transactionTypes[indexPath.row]
-            let totalAmount = transactionTypeTotals[transactionType] ?? 0.0
+            let totalAmount = transactionTypeTotals[transactionType]?.totalAmount ?? 0.0
+            let count = transactionTypeTotals[transactionType]?.count ?? 0
             
             
             let expenseCell = paymentTypeTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
             
             expenseCell.expenseTitle.text = transactionType
-            expenseCell.expenseSubTitle.text = "no of Transactions"
+            expenseCell.expenseSubTitle.text = "\(count) Transactions"
             if transactionType == "Cash" {
                 expenseCell.expenseImgaeView.image = UIImage(systemName: "dollarsign.circle")
             } else if transactionType == "Card" {
