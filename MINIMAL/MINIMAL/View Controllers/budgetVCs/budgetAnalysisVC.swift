@@ -1,5 +1,5 @@
 //
-//  budgetAnalysisVC.swift
+//  BudgetAnalysisVC.swift
 //  MINIMAL
 //
 //  Created by Mohammed, Tahoor Ahmed on 10/22/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class budgetAnalysisVC: UIViewController {
+class BudgetAnalysisVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

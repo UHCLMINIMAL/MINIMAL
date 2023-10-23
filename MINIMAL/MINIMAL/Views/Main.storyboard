@@ -239,8 +239,8 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
-                                        <rect key="frame" x="0.0" y="173.66666666666666" width="388" height="51"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
+                                        <rect key="frame" x="0.0" y="130" width="388" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yAi-fc-3Yn"/>
                                         </constraints>
@@ -252,8 +252,8 @@
                                             <action selector="budgetSegmentControl:" destination="52t-iQ-hQ6" eventType="valueChanged" id="qJA-Rv-ovE"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-Hc-fFc">
-                                        <rect key="frame" x="0.0" y="302.33333333333331" width="388" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-Hc-fFc">
+                                        <rect key="frame" x="0.0" y="215" width="388" height="40"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="rC3-tp-Idc"/>
@@ -266,11 +266,35 @@
                                             <action selector="budgetMonthPicker:" destination="52t-iQ-hQ6" eventType="touchUpInside" id="32M-Jv-aRo"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlP-oh-M4o">
+                                        <rect key="frame" x="0.0" y="290" width="388" height="250"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="43b-s1-VOZ"/>
+                                        </constraints>
+                                    </view>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGs-1v-vLP">
+                                        <rect key="frame" x="0.0" y="545" width="388" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="OgV-vb-M1I"/>
+                                            <constraint firstAttribute="height" constant="25" id="SfH-WI-MuD"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Done"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="OgV-vb-M1I"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="closeMonthPickerAction:" destination="52t-iQ-hQ6" eventType="touchUpInside" id="1RN-LI-VtT"/>
+                                        </connections>
+                                    </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-Go-HI8">
-                                        <rect key="frame" x="0.0" y="421" width="388" height="348"/>
+                                        <rect key="frame" x="0.0" y="575" width="388" height="194"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jD-Rj8">
-                                                <rect key="frame" x="0.0" y="0.0" width="388" height="496"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jD-Rj8">
+                                                <rect key="frame" x="0.0" y="0.0" width="388" height="194"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -286,15 +310,28 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85882352941176465" green="0.88627450980392153" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="RzS-Go-HI8" secondAttribute="bottom" id="2Nw-3c-t6g"/>
+                                    <constraint firstAttribute="bottom" secondItem="RzS-Go-HI8" secondAttribute="bottom" constant="5" id="2Nw-3c-t6g"/>
                                     <constraint firstAttribute="trailing" secondItem="RzS-Go-HI8" secondAttribute="trailing" id="4dK-S8-AjN"/>
-                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="yI5-Hc-fFc" secondAttribute="bottom" constant="10" id="GW4-sr-uPy"/>
+                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="zGs-1v-vLP" secondAttribute="bottom" constant="5" id="GZD-2r-g0a"/>
                                     <constraint firstItem="yI5-Hc-fFc" firstAttribute="top" secondItem="4mu-u1-w0j" secondAttribute="bottom" constant="10" id="RUv-Hc-nNN"/>
+                                    <constraint firstItem="hlP-oh-M4o" firstAttribute="centerX" secondItem="bp7-dj-FDo" secondAttribute="centerX" id="V66-uB-f3r"/>
+                                    <constraint firstAttribute="trailing" secondItem="zGs-1v-vLP" secondAttribute="trailing" constant="5" id="Z0z-h5-nP7"/>
                                     <constraint firstItem="yI5-Hc-fFc" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" constant="10" id="aEC-Tp-dqa"/>
+                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="zGs-1v-vLP" secondAttribute="bottom" constant="5" id="ce5-30-iAG"/>
+                                    <constraint firstAttribute="trailing" secondItem="4mu-u1-w0j" secondAttribute="trailing" constant="10" id="eiF-Yx-5Ji"/>
+                                    <constraint firstItem="zGs-1v-vLP" firstAttribute="top" secondItem="hlP-oh-M4o" secondAttribute="bottom" constant="5" id="p2R-Oe-vLa"/>
+                                    <constraint firstItem="hlP-oh-M4o" firstAttribute="top" secondItem="yI5-Hc-fFc" secondAttribute="bottom" constant="5" id="rDu-mX-ZKj"/>
                                     <constraint firstItem="4mu-u1-w0j" firstAttribute="top" secondItem="DCi-AT-jsY" secondAttribute="bottom" constant="10" id="rw6-Lm-UKU"/>
+                                    <constraint firstItem="4mu-u1-w0j" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" constant="10" id="usK-Q1-hqz"/>
                                     <constraint firstAttribute="trailing" secondItem="yI5-Hc-fFc" secondAttribute="trailing" constant="10" id="vbe-6F-w8S"/>
                                     <constraint firstItem="RzS-Go-HI8" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" id="z2k-nc-Edw"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Z0z-h5-nP7"/>
+                                        <exclude reference="ce5-30-iAG"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bRA-3Q-dKC"/>
@@ -316,6 +353,8 @@
                     <connections>
                         <outlet property="budgetMonthPickerText" destination="yI5-Hc-fFc" id="YVh-Xw-cm2"/>
                         <outlet property="budgetViewContainer" destination="9KK-jD-Rj8" id="BQ9-Tc-8aL"/>
+                        <outlet property="closeMonthPickerBtn" destination="zGs-1v-vLP" id="KRf-7S-xc3"/>
+                        <outlet property="monthPickerView" destination="hlP-oh-M4o" id="l84-1B-oEm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gda-Wk-KYr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

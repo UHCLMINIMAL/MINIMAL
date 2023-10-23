@@ -1,5 +1,5 @@
 //
-//  budgetPlanVC.swift
+//  BudgetPlanVC.swift
 //  MINIMAL
 //
 //  Created by Mohammed, Tahoor Ahmed on 10/22/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class budgetPlanVC: UIViewController {
+class BudgetPlanVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
