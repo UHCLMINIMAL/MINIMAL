@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		018027742AE8512D00960A36 /* ShowAllExpensesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018027732AE8512D00960A36 /* ShowAllExpensesVC.swift */; };
 		321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */; };
 		321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */; };
 		321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */; };
@@ -36,7 +37,6 @@
 		32AB48D72AD96EB600EF5571 /* addExpenseFieldsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */; };
 		32AB48DA2ADAE52C00EF5571 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48D92ADAE52C00EF5571 /* Utils.swift */; };
 		32AB48DC2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */; };
-		32C7C5792AE2A05100AC2C4C /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C7C5782AE2A05100AC2C4C /* Title.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		018027732AE8512D00960A36 /* ShowAllExpensesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAllExpensesVC.swift; sourceTree = "<group>"; };
 		321F68DA2AC952DA005F6DD4 /* MINIMAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINIMAL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addExpenseFieldsTableCell.xib; sourceTree = "<group>"; };
 		32AB48D92ADAE52C00EF5571 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepeatPeriodVC.swift; sourceTree = "<group>"; };
-		32C7C5782AE2A05100AC2C4C /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Title.png; path = ../../../../../../../../../Downloads/Title.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +209,7 @@
 				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
 				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
 				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
+				018027732AE8512D00960A36 /* ShowAllExpensesVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -225,7 +226,6 @@
 		3242145F2AD832A60012D648 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				32C7C5782AE2A05100AC2C4C /* Title.png */,
 				3242147C2AD837BC0012D648 /* Category.png */,
 				3242147E2AD838090012D648 /* Repeat.png */,
 				3242147A2AD8372C0012D648 /* Transaction Date.png */,
@@ -366,7 +366,6 @@
 				3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */,
 				32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */,
 				32727EA52ACA205500854443 /* Main.storyboard in Resources */,
-				32C7C5792AE2A05100AC2C4C /* Title.png in Resources */,
 				3242147F2AD838090012D648 /* Repeat.png in Resources */,
 				321F68ED2AC952DB005F6DD4 /* LaunchScreen.storyboard in Resources */,
 				321F68EA2AC952DB005F6DD4 /* Assets.xcassets in Resources */,
@@ -403,6 +402,7 @@
 				321F69152AC95536005F6DD4 /* HomePageVC.swift in Sources */,
 				32AB48D62AD96EB600EF5571 /* AddExpenseFieldsTableCell.swift in Sources */,
 				322C4E752AE2126D008706AB /* Category+CoreDataProperties.swift in Sources */,
+				018027742AE8512D00960A36 /* ShowAllExpensesVC.swift in Sources */,
 				321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */,
 				322C4E742AE2126D008706AB /* Category+CoreDataClass.swift in Sources */,
 				32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */,

@@ -134,7 +134,13 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             print("Failed to instantiate AddExpensePageVC")
         }
     }
-
+    
+    @IBAction func seeAllRecentExpensesTapped(_ sender: Any) {
+    }
+    
+    @IBAction func sellAllupComingExpensesTapped(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
