@@ -141,6 +141,7 @@
                                                         <rect key="frame" x="8" y="48" width="360" height="142"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -165,6 +166,11 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="See all"/>
                                                     </button>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RLl-Ds-rgb">
+                                                        <rect key="frame" x="8" y="38" width="360" height="142"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
@@ -181,6 +187,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nKz-de-j6f">
+                                                        <rect key="frame" x="8" y="36" width="360" height="118"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                    </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
@@ -239,8 +250,10 @@
                         <outlet property="currentMonthLabel" destination="hrt-Uv-SDq" id="yqw-Qy-VSZ"/>
                         <outlet property="monthlySummary" destination="6hD-i5-zpK" id="VEs-ys-bpZ"/>
                         <outlet property="paymentTypeSummary" destination="rJA-q3-rVx" id="jjn-AG-YBl"/>
+                        <outlet property="paymentTypeTableView" destination="nKz-de-j6f" id="Jzs-Gd-21Q"/>
                         <outlet property="recentExpenses" destination="qrN-yK-86y" id="kJg-jZ-8fv"/>
                         <outlet property="recentExpensesTableView" destination="R2G-N2-3c5" id="0y9-cZ-NXR"/>
+                        <outlet property="upComingExpensesTableView" destination="RLl-Ds-rgb" id="rtb-dP-PqJ"/>
                         <outlet property="upcomingExpenses" destination="n1o-gE-Aki" id="KND-yr-6d3"/>
                     </connections>
                 </viewController>

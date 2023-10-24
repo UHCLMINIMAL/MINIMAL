@@ -15,10 +15,21 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var paymentTypeSummary: UIView!
     @IBOutlet weak var currentMonthLabel: UILabel!
     @IBOutlet weak var recentExpensesTableView: UITableView!
+    @IBOutlet weak var upComingExpensesTableView: UITableView!
+    @IBOutlet weak var paymentTypeTableView: UITableView!
     private var allExpenses = ExpenseDataManadger.fetchAllExpenses()
+    private var recentExpensesFiltered: [Expense] = []
+    private var upComingExpensesFiltered: [Expense] = []
+    private var transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountAndCountByTransactionType()
+    let currentDate = Date()
+    let utils = Utils()
     
     func didSavedExpense() {
+        allExpenses = ExpenseDataManadger.fetchAllExpenses()
+        transactionTypeTotals = ExpenseDataManadger.calculateTotalAmountAndCountByTransactionType()
         recentExpensesTableView.reloadData()
+        upComingExpensesTableView.reloadData()
+        paymentTypeTableView.reloadData()
     }
     
     private let addExpenseButton: UIButton = {
@@ -37,21 +48,75 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(3,allExpenses.count)
+        if tableView == recentExpensesTableView {
+            recentExpensesFiltered = allExpenses.filter { $0.expenseDate ?? Date() <= currentDate }
+            return min(3,recentExpensesFiltered.count)
+        }
+        if tableView == upComingExpensesTableView {
+            upComingExpensesFiltered = allExpenses.filter { $0.expenseDate ?? Date() >= currentDate }
+            return min(3,upComingExpensesFiltered.count)
+        }
+        if tableView == paymentTypeTableView {
+            return transactionTypeTotals.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let expense = allExpenses[indexPath.row]
-        let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
-        
-        expenseCell.expenseTitle.text = expense.title
-        expenseCell.expenseSubTitle.text = expense.transactionType
-        expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
-        expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amoount))
-        expenseCell.expenseDate.text = String(format: "MMM dd, yyyy", expense.expenseDate! as CVarArg)
-        
-        return expenseCell
+        switch tableView {
+        case recentExpensesTableView:
+            let expense = recentExpensesFiltered[indexPath.row]
+            let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
+            
+            expenseCell.expenseTitle.text = expense.title
+            expenseCell.expenseSubTitle.text = expense.transactionType
+            expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
+            expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amount))
+            expenseCell.expenseDate.text = utils.formattedDate(expense.expenseDate ?? Date(), format: "MMM dd, yyyy")
+            
+            return expenseCell
+            
+        case upComingExpensesTableView:
+            let expense = upComingExpensesFiltered[indexPath.row]
+            let expenseCell = upComingExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
+            
+            expenseCell.expenseTitle.text = expense.title
+            expenseCell.expenseSubTitle.text = expense.transactionType
+            expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
+            expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amount))
+            expenseCell.expenseDate.text = utils.formattedDate(expense.expenseDate ?? Date(), format: "MMM dd, yyyy")
+            
+            return expenseCell
+            
+        case paymentTypeTableView:
+            
+            // Assuming you have an array of transaction types
+            let transactionTypes = Array(transactionTypeTotals.keys)
+            let transactionType = transactionTypes[indexPath.row]
+            let totalAmount = transactionTypeTotals[transactionType]?.totalAmount ?? 0.0
+            let count = transactionTypeTotals[transactionType]?.count ?? 0
+            
+            
+            let expenseCell = paymentTypeTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
+            
+            expenseCell.expenseTitle.text = transactionType
+            expenseCell.expenseSubTitle.text = "\(count) Transactions"
+            if transactionType == "Cash" {
+                expenseCell.expenseImgaeView.image = UIImage(systemName: "dollarsign.circle")
+            } else if transactionType == "Card" {
+                expenseCell.expenseImgaeView.image = UIImage(systemName: "creditcard.circle")
+            } else {
+                expenseCell.expenseImgaeView.image = UIImage(systemName: "questionmark.circle")
+            }
+            expenseCell.expenseAmount.text = String(format: "$%.2f", totalAmount)
+            expenseCell.expenseDate.text = utils.formattedDate(Date(), format: "MMMM, yyyy")
+            
+            return expenseCell
+            
+        default:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,7 +158,15 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         recentExpensesTableView.dataSource = self
         recentExpensesTableView.delegate = self
         
+        upComingExpensesTableView.dataSource = self
+        upComingExpensesTableView.delegate = self
+        
+        paymentTypeTableView.dataSource = self
+        paymentTypeTableView.delegate = self
+        
         recentExpensesTableView.register(UINib(nibName: "ExpenseTableViewCell", bundle: nil), forCellReuseIdentifier: "expenseCell")
+        upComingExpensesTableView.register(UINib(nibName: "ExpenseTableViewCell", bundle: nil), forCellReuseIdentifier: "expenseCell")
+        paymentTypeTableView.register(UINib(nibName: "ExpenseTableViewCell", bundle: nil), forCellReuseIdentifier: "expenseCell")
         
         view.addSubview(addExpenseButton)
         addExpenseButton.addTarget(self, action: #selector(addExpenseBtnTapped), for: .touchDown)

@@ -19,8 +19,9 @@ extension Expense {
     @NSManaged public var expenseID: UUID?
     @NSManaged public var title: String?
     @NSManaged public var transactionType: String?
-    @NSManaged public var amoount: Float
+    @NSManaged public var amount: Float
     @NSManaged public var expenseDate: Date?
+    @NSManaged public var createdOn: Date?
     @NSManaged public var updatedOn: Date?
     @NSManaged public var category: String?
 

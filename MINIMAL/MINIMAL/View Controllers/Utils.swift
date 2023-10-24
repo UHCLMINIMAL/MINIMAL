@@ -9,9 +9,9 @@ import Foundation
 
 class Utils {
     
-    func formattedDate(_ date: Date) -> String {
+    func formattedDate(_ date: Date, format: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy" // Customize the date format as needed
+        dateFormatter.dateFormat = format // Customize the date format as needed
         return dateFormatter.string(from: date)
     }
     
