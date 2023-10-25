@@ -136,6 +136,11 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     @IBAction func seeAllRecentExpensesTapped(_ sender: Any) {
+        if let showAllExpensesVC = storyboard?.instantiateViewController(withIdentifier: "ShowAllExpensesVC") as? ShowAllExpensesVC {
+            
+            showAllExpensesVC.recentExpenses = recentExpensesFiltered
+            self.present(showAllExpensesVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func sellAllupComingExpensesTapped(_ sender: Any) {
