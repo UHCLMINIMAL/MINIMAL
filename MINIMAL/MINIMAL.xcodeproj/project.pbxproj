@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D453032AE8B58500EE529B /* SettingsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D453022AE8B58500EE529B /* SettingsPageVC.swift */; };
+		04D4530D2AE8B9A000EE529B /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D453072AE8B9A000EE529B /* About.png */; };
+		04D4530E2AE8B9A000EE529B /* Privacy & Security.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D453082AE8B9A000EE529B /* Privacy & Security.png */; };
+		04D4530F2AE8B9A000EE529B /* Appearance.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D453092AE8B9A000EE529B /* Appearance.png */; };
+		04D453102AE8B9A000EE529B /* Account.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D4530A2AE8B9A000EE529B /* Account.png */; };
+		04D453112AE8B9A000EE529B /* Help & Support.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D4530B2AE8B9A000EE529B /* Help & Support.png */; };
+		04D453122AE8B9A000EE529B /* Notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D4530C2AE8B9A000EE529B /* Notifications.png */; };
 		321F68DE2AC952DA005F6DD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */; };
 		321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */; };
 		321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 321F68E62AC952DA005F6DD4 /* MINIMAL.xcdatamodeld */; };
@@ -36,7 +43,6 @@
 		32AB48D72AD96EB600EF5571 /* addExpenseFieldsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */; };
 		32AB48DA2ADAE52C00EF5571 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48D92ADAE52C00EF5571 /* Utils.swift */; };
 		32AB48DC2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */; };
-		32C7C5792AE2A05100AC2C4C /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 32C7C5782AE2A05100AC2C4C /* Title.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04D453022AE8B58500EE529B /* SettingsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageVC.swift; sourceTree = "<group>"; };
+		04D453072AE8B9A000EE529B /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = About.png; sourceTree = "<group>"; };
+		04D453082AE8B9A000EE529B /* Privacy & Security.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Privacy & Security.png"; sourceTree = "<group>"; };
+		04D453092AE8B9A000EE529B /* Appearance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appearance.png; sourceTree = "<group>"; };
+		04D4530A2AE8B9A000EE529B /* Account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Account.png; sourceTree = "<group>"; };
+		04D4530B2AE8B9A000EE529B /* Help & Support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help & Support.png"; sourceTree = "<group>"; };
+		04D4530C2AE8B9A000EE529B /* Notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notifications.png; sourceTree = "<group>"; };
 		321F68DA2AC952DA005F6DD4 /* MINIMAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MINIMAL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		321F68DD2AC952DA005F6DD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		321F68DF2AC952DA005F6DD4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +104,6 @@
 		32AB48D52AD96EB600EF5571 /* addExpenseFieldsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addExpenseFieldsTableCell.xib; sourceTree = "<group>"; };
 		32AB48D92ADAE52C00EF5571 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		32AB48DB2ADAFE4900EF5571 /* TransactionRepeatPeriodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepeatPeriodVC.swift; sourceTree = "<group>"; };
-		32C7C5782AE2A05100AC2C4C /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Title.png; path = ../../../../../../../../../Downloads/Title.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D453042AE8B82B00EE529B /* Add Expense */ = {
+			isa = PBXGroup;
+			children = (
+				3242147C2AD837BC0012D648 /* Category.png */,
+				3242147E2AD838090012D648 /* Repeat.png */,
+				3242147A2AD8372C0012D648 /* Transaction Date.png */,
+			);
+			path = "Add Expense";
+			sourceTree = "<group>";
+		};
+		04D453062AE8B99400EE529B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				04D453072AE8B9A000EE529B /* About.png */,
+				04D4530A2AE8B9A000EE529B /* Account.png */,
+				04D453092AE8B9A000EE529B /* Appearance.png */,
+				04D4530B2AE8B9A000EE529B /* Help & Support.png */,
+				04D4530C2AE8B9A000EE529B /* Notifications.png */,
+				04D453082AE8B9A000EE529B /* Privacy & Security.png */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		321F68D12AC952DA005F6DD4 = {
 			isa = PBXGroup;
 			children = (
@@ -175,10 +210,12 @@
 		321F69112AC95344005F6DD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3242145F2AD832A60012D648 /* Icons */,
 				3222F5A12AD38C9E00EAED5C /* Home */,
 				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
 				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
 				32AB48D92ADAE52C00EF5571 /* Utils.swift */,
+				04D453022AE8B58500EE529B /* SettingsPageVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -205,7 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				32AB48D32AD96C0300EF5571 /* Add Expense */,
-				3242145F2AD832A60012D648 /* Images */,
 				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
 				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
 				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
@@ -222,15 +258,13 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		3242145F2AD832A60012D648 /* Images */ = {
+		3242145F2AD832A60012D648 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				32C7C5782AE2A05100AC2C4C /* Title.png */,
-				3242147C2AD837BC0012D648 /* Category.png */,
-				3242147E2AD838090012D648 /* Repeat.png */,
-				3242147A2AD8372C0012D648 /* Transaction Date.png */,
+				04D453062AE8B99400EE529B /* Settings */,
+				04D453042AE8B82B00EE529B /* Add Expense */,
 			);
-			path = Images;
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		32A939EE2ACFBBC40005974B /* Expense */ = {
@@ -361,13 +395,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */,
+				04D453102AE8B9A000EE529B /* Account.png in Resources */,
+				04D4530F2AE8B9A000EE529B /* Appearance.png in Resources */,
 				32AB48D72AD96EB600EF5571 /* addExpenseFieldsTableCell.xib in Resources */,
+				04D4530E2AE8B9A000EE529B /* Privacy & Security.png in Resources */,
+				04D453112AE8B9A000EE529B /* Help & Support.png in Resources */,
+				04D453122AE8B9A000EE529B /* Notifications.png in Resources */,
 				3242147D2AD837BC0012D648 /* Category.png in Resources */,
 				3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */,
 				32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */,
 				32727EA52ACA205500854443 /* Main.storyboard in Resources */,
-				32C7C5792AE2A05100AC2C4C /* Title.png in Resources */,
 				3242147F2AD838090012D648 /* Repeat.png in Resources */,
+				04D4530D2AE8B9A000EE529B /* About.png in Resources */,
 				321F68ED2AC952DB005F6DD4 /* LaunchScreen.storyboard in Resources */,
 				321F68EA2AC952DB005F6DD4 /* Assets.xcassets in Resources */,
 			);
@@ -411,6 +450,7 @@
 				321F68E02AC952DA005F6DD4 /* SceneDelegate.swift in Sources */,
 				321F68E82AC952DA005F6DD4 /* MINIMAL.xcdatamodeld in Sources */,
 				32AB48D12AD95B3300EF5571 /* CustomOverlayPopUpVC.swift in Sources */,
+				04D453032AE8B58500EE529B /* SettingsPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
