@@ -19,6 +19,8 @@ class SettingsPageVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
+        
+        settingsTableView.layer.cornerRadius = 15
 
         // Do any additional setup after loading the view.
     }
@@ -33,8 +35,14 @@ class SettingsPageVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         settingsCell.textLabel?.text = setting
         settingsCell.imageView?.image = UIImage(named: setting)
+        settingsCell.accessoryType = .disclosureIndicator
         
         return settingsCell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
 
 }
