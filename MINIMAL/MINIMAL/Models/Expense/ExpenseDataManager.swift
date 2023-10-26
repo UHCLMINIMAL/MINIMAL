@@ -95,4 +95,15 @@ class ExpenseDataManadger: NSObject {
         
         return [:]
     }
+    
+    static func delete(expense: Expense, competion: @escaping () -> Void) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            //Saving the context to persist the data
+            managedContext.delete(expense)
+            competion()
+        }
+    }
+    
 }
