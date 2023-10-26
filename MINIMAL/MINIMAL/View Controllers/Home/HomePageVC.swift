@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, ExpenseAddedDelegate {
     
@@ -17,6 +18,7 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     @IBOutlet weak var recentExpensesTableView: UITableView!
     @IBOutlet weak var upComingExpensesTableView: UITableView!
     @IBOutlet weak var paymentTypeTableView: UITableView!
+    
     private var allExpenses = ExpenseDataManadger.fetchAllExpenses()
     private var recentExpensesFiltered: [Expense] = []
     private var upComingExpensesFiltered: [Expense] = []
