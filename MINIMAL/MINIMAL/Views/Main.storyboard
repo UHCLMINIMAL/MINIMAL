@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RXm-Hh-HQ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RXm-Hh-HQ2">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -79,7 +80,7 @@
                                         <color key="sectionIndexTrackingBackgroundColor" systemColor="labelColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expenseCell" rowHeight="51" id="6vj-oV-Prf" customClass="ExpenseViewCell" customModule="MINIMAL" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.666666030883789" width="343" height="51"/>
+                                                <rect key="frame" x="0.0" y="50" width="343" height="51"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vj-oV-Prf" id="Eln-6N-ld8">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="51"/>
@@ -182,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bp7-dj-FDo">
-                                <rect key="frame" x="20" y="59" width="388" height="769"/>
+                                <rect key="frame" x="20" y="62" width="388" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCi-AT-jsY">
                                         <rect key="frame" x="0.0" y="0.0" width="388" height="95"/>
@@ -239,8 +240,8 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
-                                        <rect key="frame" x="0.0" y="130" width="388" height="51"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4mu-u1-w0j">
+                                        <rect key="frame" x="0.0" y="135" width="388" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yAi-fc-3Yn"/>
                                         </constraints>
@@ -252,8 +253,8 @@
                                             <action selector="budgetSegmentControl:" destination="52t-iQ-hQ6" eventType="valueChanged" id="qJA-Rv-ovE"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-Hc-fFc">
-                                        <rect key="frame" x="0.0" y="215" width="388" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI5-Hc-fFc">
+                                        <rect key="frame" x="0.0" y="225" width="388" height="40"/>
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="rC3-tp-Idc"/>
@@ -266,35 +267,11 @@
                                             <action selector="budgetMonthPicker:" destination="52t-iQ-hQ6" eventType="touchUpInside" id="32M-Jv-aRo"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlP-oh-M4o">
-                                        <rect key="frame" x="0.0" y="290" width="388" height="250"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="43b-s1-VOZ"/>
-                                        </constraints>
-                                    </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGs-1v-vLP">
-                                        <rect key="frame" x="0.0" y="545" width="388" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="OgV-vb-M1I"/>
-                                            <constraint firstAttribute="height" constant="25" id="SfH-WI-MuD"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Done"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="OgV-vb-M1I"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="closeMonthPickerAction:" destination="52t-iQ-hQ6" eventType="touchUpInside" id="1RN-LI-VtT"/>
-                                        </connections>
-                                    </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzS-Go-HI8">
-                                        <rect key="frame" x="0.0" y="575" width="388" height="194"/>
+                                        <rect key="frame" x="0.0" y="305" width="388" height="461"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jD-Rj8">
-                                                <rect key="frame" x="0.0" y="0.0" width="388" height="194"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-jD-Rj8">
+                                                <rect key="frame" x="0.0" y="0.0" width="388" height="461"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -312,26 +289,15 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="RzS-Go-HI8" secondAttribute="bottom" constant="5" id="2Nw-3c-t6g"/>
                                     <constraint firstAttribute="trailing" secondItem="RzS-Go-HI8" secondAttribute="trailing" id="4dK-S8-AjN"/>
-                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="zGs-1v-vLP" secondAttribute="bottom" constant="5" id="GZD-2r-g0a"/>
                                     <constraint firstItem="yI5-Hc-fFc" firstAttribute="top" secondItem="4mu-u1-w0j" secondAttribute="bottom" constant="10" id="RUv-Hc-nNN"/>
-                                    <constraint firstItem="hlP-oh-M4o" firstAttribute="centerX" secondItem="bp7-dj-FDo" secondAttribute="centerX" id="V66-uB-f3r"/>
-                                    <constraint firstAttribute="trailing" secondItem="zGs-1v-vLP" secondAttribute="trailing" constant="5" id="Z0z-h5-nP7"/>
                                     <constraint firstItem="yI5-Hc-fFc" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" constant="10" id="aEC-Tp-dqa"/>
-                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="zGs-1v-vLP" secondAttribute="bottom" constant="5" id="ce5-30-iAG"/>
                                     <constraint firstAttribute="trailing" secondItem="4mu-u1-w0j" secondAttribute="trailing" constant="10" id="eiF-Yx-5Ji"/>
-                                    <constraint firstItem="zGs-1v-vLP" firstAttribute="top" secondItem="hlP-oh-M4o" secondAttribute="bottom" constant="5" id="p2R-Oe-vLa"/>
-                                    <constraint firstItem="hlP-oh-M4o" firstAttribute="top" secondItem="yI5-Hc-fFc" secondAttribute="bottom" constant="5" id="rDu-mX-ZKj"/>
+                                    <constraint firstItem="RzS-Go-HI8" firstAttribute="top" secondItem="yI5-Hc-fFc" secondAttribute="bottom" constant="10" id="knk-eI-hGh"/>
                                     <constraint firstItem="4mu-u1-w0j" firstAttribute="top" secondItem="DCi-AT-jsY" secondAttribute="bottom" constant="10" id="rw6-Lm-UKU"/>
                                     <constraint firstItem="4mu-u1-w0j" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" constant="10" id="usK-Q1-hqz"/>
                                     <constraint firstAttribute="trailing" secondItem="yI5-Hc-fFc" secondAttribute="trailing" constant="10" id="vbe-6F-w8S"/>
                                     <constraint firstItem="RzS-Go-HI8" firstAttribute="leading" secondItem="bp7-dj-FDo" secondAttribute="leading" id="z2k-nc-Edw"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Z0z-h5-nP7"/>
-                                        <exclude reference="ce5-30-iAG"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bRA-3Q-dKC"/>
@@ -351,15 +317,55 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Budget" image="dollarsign.square" catalog="system" id="lQe-26-ebZ"/>
                     <connections>
-                        <outlet property="budgetMonthPickerText" destination="yI5-Hc-fFc" id="YVh-Xw-cm2"/>
+                        <outlet property="budgetMonthPickerText" destination="yI5-Hc-fFc" id="eb5-CJ-pVU"/>
                         <outlet property="budgetViewContainer" destination="9KK-jD-Rj8" id="BQ9-Tc-8aL"/>
-                        <outlet property="closeMonthPickerBtn" destination="zGs-1v-vLP" id="KRf-7S-xc3"/>
-                        <outlet property="monthPickerView" destination="hlP-oh-M4o" id="l84-1B-oEm"/>
+                        <segue destination="vzc-7G-boq" kind="presentation" identifier="budgetMonthPickerSegue" id="dr4-KJ-RgC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gda-Wk-KYr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598.1308411214952" y="833.26133909287262"/>
+            <point key="canvasLocation" x="1573" y="834"/>
+        </scene>
+        <!--Budget Month PickerVC-->
+        <scene sceneID="DPL-O8-f60">
+            <objects>
+                <viewController id="vzc-7G-boq" customClass="BudgetMonthPickerVC" customModule="MINIMAL" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b3s-q0-QaU">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="916"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EE-at-gem">
+                                <rect key="frame" x="182" y="326" width="65" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Done">
+                                    <color key="baseBackgroundColor" red="0.066666666666666666" green="0.1764705882352941" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeMonthPickerAction:" destination="vzc-7G-boq" eventType="touchUpInside" id="z95-vK-cEJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Budget Month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKq-Pe-GbT">
+                                <rect key="frame" x="78" y="50" width="272" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZDL-Dp-Hc1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dKq-Pe-GbT" firstAttribute="top" secondItem="ZDL-Dp-Hc1" secondAttribute="top" constant="50" id="kRd-Mc-nKa"/>
+                            <constraint firstItem="dKq-Pe-GbT" firstAttribute="centerX" secondItem="b3s-q0-QaU" secondAttribute="centerX" id="z8d-ez-uCJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeMonthPickerBtn" destination="0EE-at-gem" id="Kcd-vR-Am4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ytU-jy-Gec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835.51401869158872" y="1657.4514038876891"/>
         </scene>
         <!--Reports-->
         <scene sceneID="4PN-3m-kl8">
@@ -550,15 +556,15 @@
     </scenes>
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
-        <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="chart.pie" catalog="system" width="128" height="121"/>
-        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="bell" catalog="system" width="125" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="chart.pie" catalog="system" width="128" height="123"/>
+        <image name="dollarsign.circle" catalog="system" width="128" height="123"/>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="repeat" catalog="system" width="128" height="98"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -570,13 +576,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
