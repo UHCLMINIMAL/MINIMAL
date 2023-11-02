@@ -20,13 +20,21 @@
 		321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */; };
 		321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F69182AC95566005F6DD4 /* ReportsPageVC.swift */; };
 		321F691B2AC95580005F6DD4 /* BudgetPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */; };
+		322B8CE22AEA84D7002636D1 /* SettingsPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B8CE12AEA84D7002636D1 /* SettingsPageVC.swift */; };
+		322B8CEB2AEA905F002636D1 /* About.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CE52AEA905E002636D1 /* About.png */; };
+		322B8CEC2AEA905F002636D1 /* Appearance.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CE62AEA905E002636D1 /* Appearance.png */; };
+		322B8CED2AEA905F002636D1 /* Help & Support.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CE72AEA905F002636D1 /* Help & Support.png */; };
+		322B8CEE2AEA905F002636D1 /* Account.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CE82AEA905F002636D1 /* Account.png */; };
+		322B8CEF2AEA905F002636D1 /* Notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CE92AEA905F002636D1 /* Notifications.png */; };
+		322B8CF02AEA905F002636D1 /* Privacy & Security.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CEA2AEA905F002636D1 /* Privacy & Security.png */; };
+		322B8CF62AEA90BB002636D1 /* Transaction Date.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CF22AEA90BA002636D1 /* Transaction Date.png */; };
+		322B8CF72AEA90BB002636D1 /* Category.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CF32AEA90BA002636D1 /* Category.png */; };
+		322B8CF82AEA90BB002636D1 /* Repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CF42AEA90BA002636D1 /* Repeat.png */; };
+		322B8CF92AEA90BB002636D1 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 322B8CF52AEA90BA002636D1 /* Title.png */; };
 		322C4E742AE2126D008706AB /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C4E722AE2126D008706AB /* Category+CoreDataClass.swift */; };
 		322C4E752AE2126D008706AB /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322C4E732AE2126D008706AB /* Category+CoreDataProperties.swift */; };
 		323D27452AD2155900C288D8 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */; };
 		323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */; };
-		3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */ = {isa = PBXBuildFile; fileRef = 3242147A2AD8372C0012D648 /* Transaction Date.png */; };
-		3242147D2AD837BC0012D648 /* Category.png in Resources */ = {isa = PBXBuildFile; fileRef = 3242147C2AD837BC0012D648 /* Category.png */; };
-		3242147F2AD838090012D648 /* Repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 3242147E2AD838090012D648 /* Repeat.png */; };
 		32727EA52ACA205500854443 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32727EA42ACA205500854443 /* Main.storyboard */; };
 		32A939EC2ACFB9E00005974B /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EA2ACFB9E00005974B /* Expense+CoreDataClass.swift */; };
 		32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A939EB2ACFB9E00005974B /* Expense+CoreDataProperties.swift */; };
@@ -75,13 +83,21 @@
 		321F69162AC95552005F6DD4 /* AddExpensePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensePageVC.swift; sourceTree = "<group>"; };
 		321F69182AC95566005F6DD4 /* ReportsPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsPageVC.swift; sourceTree = "<group>"; };
 		321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetPageVC.swift; sourceTree = "<group>"; };
+		322B8CE12AEA84D7002636D1 /* SettingsPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPageVC.swift; sourceTree = "<group>"; };
+		322B8CE52AEA905E002636D1 /* About.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = About.png; sourceTree = "<group>"; };
+		322B8CE62AEA905E002636D1 /* Appearance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Appearance.png; sourceTree = "<group>"; };
+		322B8CE72AEA905F002636D1 /* Help & Support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help & Support.png"; sourceTree = "<group>"; };
+		322B8CE82AEA905F002636D1 /* Account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Account.png; sourceTree = "<group>"; };
+		322B8CE92AEA905F002636D1 /* Notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notifications.png; sourceTree = "<group>"; };
+		322B8CEA2AEA905F002636D1 /* Privacy & Security.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Privacy & Security.png"; sourceTree = "<group>"; };
+		322B8CF22AEA90BA002636D1 /* Transaction Date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transaction Date.png"; sourceTree = "<group>"; };
+		322B8CF32AEA90BA002636D1 /* Category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category.png; sourceTree = "<group>"; };
+		322B8CF42AEA90BA002636D1 /* Repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Repeat.png; sourceTree = "<group>"; };
+		322B8CF52AEA90BA002636D1 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
 		322C4E722AE2126D008706AB /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		322C4E732AE2126D008706AB /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
-		3242147A2AD8372C0012D648 /* Transaction Date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transaction Date.png"; sourceTree = "<group>"; };
-		3242147C2AD837BC0012D648 /* Category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category.png; sourceTree = "<group>"; };
-		3242147E2AD838090012D648 /* Repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Repeat.png; sourceTree = "<group>"; };
 		32727EA42ACA205500854443 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		32A939EA2ACFB9E00005974B /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		32A939EB2ACFB9E00005974B /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -175,9 +191,11 @@
 		321F69112AC95344005F6DD4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				322B8CE32AEA8FD5002636D1 /* Icons */,
 				3222F5A12AD38C9E00EAED5C /* Home */,
 				321F69182AC95566005F6DD4 /* ReportsPageVC.swift */,
 				321F691A2AC95580005F6DD4 /* BudgetPageVC.swift */,
+				322B8CE12AEA84D7002636D1 /* SettingsPageVC.swift */,
 				32AB48D92ADAE52C00EF5571 /* Utils.swift */,
 			);
 			path = "View Controllers";
@@ -205,11 +223,43 @@
 			isa = PBXGroup;
 			children = (
 				32AB48D32AD96C0300EF5571 /* Add Expense */,
-				3242145F2AD832A60012D648 /* Images */,
 				321F69142AC95536005F6DD4 /* HomePageVC.swift */,
 				323D27432AD2155900C288D8 /* ExpenseTableViewCell.swift */,
 				323D27442AD2155900C288D8 /* ExpenseTableViewCell.xib */,
 				018027732AE8512D00960A36 /* ShowAllExpensesVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		322B8CE32AEA8FD5002636D1 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				322B8CF12AEA9079002636D1 /* Home */,
+				322B8CE42AEA8FDA002636D1 /* Settings */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		322B8CE42AEA8FDA002636D1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				322B8CE52AEA905E002636D1 /* About.png */,
+				322B8CE82AEA905F002636D1 /* Account.png */,
+				322B8CE62AEA905E002636D1 /* Appearance.png */,
+				322B8CE72AEA905F002636D1 /* Help & Support.png */,
+				322B8CE92AEA905F002636D1 /* Notifications.png */,
+				322B8CEA2AEA905F002636D1 /* Privacy & Security.png */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		322B8CF12AEA9079002636D1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				322B8CF22AEA90BA002636D1 /* Transaction Date.png */,
+				322B8CF32AEA90BA002636D1 /* Category.png */,
+				322B8CF42AEA90BA002636D1 /* Repeat.png */,
+				322B8CF52AEA90BA002636D1 /* Title.png */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -221,16 +271,6 @@
 				322C4E732AE2126D008706AB /* Category+CoreDataProperties.swift */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		3242145F2AD832A60012D648 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				3242147C2AD837BC0012D648 /* Category.png */,
-				3242147E2AD838090012D648 /* Repeat.png */,
-				3242147A2AD8372C0012D648 /* Transaction Date.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		32A939EE2ACFBBC40005974B /* Expense */ = {
@@ -344,6 +384,8 @@
 				Base,
 			);
 			mainGroup = 321F68D12AC952DA005F6DD4;
+			packageReferences = (
+			);
 			productRefGroup = 321F68DB2AC952DA005F6DD4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -361,14 +403,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				323D27462AD2155900C288D8 /* ExpenseTableViewCell.xib in Resources */,
+				322B8CF72AEA90BB002636D1 /* Category.png in Resources */,
+				322B8CEC2AEA905F002636D1 /* Appearance.png in Resources */,
 				32AB48D72AD96EB600EF5571 /* addExpenseFieldsTableCell.xib in Resources */,
-				3242147D2AD837BC0012D648 /* Category.png in Resources */,
-				3242147B2AD8372C0012D648 /* Transaction Date.png in Resources */,
+				322B8CEB2AEA905F002636D1 /* About.png in Resources */,
+				322B8CED2AEA905F002636D1 /* Help & Support.png in Resources */,
+				322B8CF62AEA90BB002636D1 /* Transaction Date.png in Resources */,
+				322B8CF02AEA905F002636D1 /* Privacy & Security.png in Resources */,
+				322B8CEF2AEA905F002636D1 /* Notifications.png in Resources */,
 				32AB48D22AD95B3300EF5571 /* CustomOverlayPopUpVC.xib in Resources */,
 				32727EA52ACA205500854443 /* Main.storyboard in Resources */,
-				3242147F2AD838090012D648 /* Repeat.png in Resources */,
+				322B8CEE2AEA905F002636D1 /* Account.png in Resources */,
 				321F68ED2AC952DB005F6DD4 /* LaunchScreen.storyboard in Resources */,
 				321F68EA2AC952DB005F6DD4 /* Assets.xcassets in Resources */,
+				322B8CF92AEA90BB002636D1 /* Title.png in Resources */,
+				322B8CF82AEA90BB002636D1 /* Repeat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +454,7 @@
 				018027742AE8512D00960A36 /* ShowAllExpensesVC.swift in Sources */,
 				321F69192AC95566005F6DD4 /* ReportsPageVC.swift in Sources */,
 				322C4E742AE2126D008706AB /* Category+CoreDataClass.swift in Sources */,
+				322B8CE22AEA84D7002636D1 /* SettingsPageVC.swift in Sources */,
 				32A939ED2ACFB9E00005974B /* Expense+CoreDataProperties.swift in Sources */,
 				321F69172AC95552005F6DD4 /* AddExpensePageVC.swift in Sources */,
 				323D27452AD2155900C288D8 /* ExpenseTableViewCell.swift in Sources */,

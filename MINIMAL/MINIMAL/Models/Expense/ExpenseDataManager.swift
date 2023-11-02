@@ -96,13 +96,18 @@ class ExpenseDataManadger: NSObject {
         return [:]
     }
     
-    static func delete(expense: Expense, competion: @escaping () -> Void) {
+    static func deleteExpense(expense: Expense, competion: @escaping () -> Void) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedContext = appDelegate.persistentContainer.viewContext
             
-            //Saving the context to persist the data
-            managedContext.delete(expense)
-            competion()
+            managedContext.delete(expense) // Delete the managed object
+            
+            do {
+                try managedContext.save() // Save the changes
+            } catch {
+                // Handle the error, e.g., display an error message
+                print("Error deleting expense: \(error)")
+            }
         }
     }
     

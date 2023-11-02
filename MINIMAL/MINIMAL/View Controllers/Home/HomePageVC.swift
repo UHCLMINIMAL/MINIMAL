@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Charts
 
 class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, ExpenseAddedDelegate {
     
@@ -65,10 +64,13 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var transactionType = "Card"
 
         switch tableView {
         case recentExpensesTableView:
             let expense = recentExpensesFiltered[indexPath.row]
+            transactionType =  expense.transactionType ?? "Cash"
             let expenseCell = recentExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
             
             expenseCell.expenseTitle.text = expense.title
@@ -77,10 +79,18 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amount))
             expenseCell.expenseDate.text = utils.formattedDate(expense.expenseDate ?? Date(), format: "MMM dd, yyyy")
             
+            expenseCell.backgroundColor = UIColor.systemGray5
+            if transactionType == "Card" {
+                expenseCell.expenseSubTitle.textColor = UIColor.minimalTheme
+            } else {
+                expenseCell.expenseSubTitle.textColor = UIColor.systemGreen
+            }
+            
             return expenseCell
             
         case upComingExpensesTableView:
             let expense = upComingExpensesFiltered[indexPath.row]
+            transactionType =  expense.transactionType ?? "Cash"
             let expenseCell = upComingExpensesTableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseTableViewCell
             
             expenseCell.expenseTitle.text = expense.title
@@ -88,6 +98,13 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             expenseCell.expenseImgaeView.image = UIImage(named: expense.category ?? "blank")
             expenseCell.expenseAmount.text = String(format: "$%.2f", Double(expense.amount))
             expenseCell.expenseDate.text = utils.formattedDate(expense.expenseDate ?? Date(), format: "MMM dd, yyyy")
+            
+            expenseCell.backgroundColor = UIColor.systemGray5
+            if transactionType == "Card" {
+                expenseCell.expenseSubTitle.textColor = UIColor.minimalTheme
+            } else {
+                expenseCell.expenseSubTitle.textColor = UIColor.systemGreen
+            }
             
             return expenseCell
             
@@ -113,6 +130,13 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
             }
             expenseCell.expenseAmount.text = String(format: "$%.2f", totalAmount)
             expenseCell.expenseDate.text = utils.formattedDate(Date(), format: "MMMM, yyyy")
+            
+            expenseCell.backgroundColor = UIColor.systemGray5
+            if transactionType == "Card" {
+                expenseCell.expenseSubTitle.textColor = UIColor.minimalTheme
+            } else {
+                expenseCell.expenseSubTitle.textColor = UIColor.systemGreen
+            }
             
             return expenseCell
             
