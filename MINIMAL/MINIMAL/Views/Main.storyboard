@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RXm-Hh-HQ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RXm-Hh-HQ2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -115,9 +115,19 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-i5-zpK" userLabel="monthlySummary">
                                                 <rect key="frame" x="0.0" y="0.0" width="376" height="200"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0d-TD-Uoh" customClass="CurrentMonthPieChartView" customModule="MINIMAL" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="26" width="200" height="148"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Z0d-TD-Uoh" secondAttribute="trailing" constant="168" id="8Wt-08-Aoi"/>
+                                                    <constraint firstItem="Z0d-TD-Uoh" firstAttribute="leading" secondItem="6hD-i5-zpK" secondAttribute="leadingMargin" id="VdT-rc-8p4"/>
                                                     <constraint firstAttribute="height" constant="200" id="lrS-XG-aeY"/>
+                                                    <constraint firstItem="Z0d-TD-Uoh" firstAttribute="centerY" secondItem="6hD-i5-zpK" secondAttribute="centerY" id="rCA-0L-MyP"/>
+                                                    <constraint firstItem="Z0d-TD-Uoh" firstAttribute="top" secondItem="6hD-i5-zpK" secondAttribute="top" constant="26" id="sjX-0S-PJw"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrN-yK-86y" userLabel="recentExpenses">
@@ -412,6 +422,7 @@
                         <segue destination="jtl-iA-pmP" kind="relationship" relationship="viewControllers" id="wFf-PA-WFw"/>
                         <segue destination="EQJ-Fu-hfT" kind="relationship" relationship="viewControllers" id="Dzl-hk-yVv"/>
                         <segue destination="1dw-RE-Doe" kind="relationship" relationship="viewControllers" id="06e-iM-jEd"/>
+                        <segue destination="IiW-hZ-JvA" kind="relationship" relationship="viewControllers" id="rwE-La-sRE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rv0-VP-1bT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -421,7 +432,7 @@
         <!--Navigation Controller-->
         <scene sceneID="BaS-3f-K5B">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T15-97-qpZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AppNavigationVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="T15-97-qpZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cQK-iL-kBE">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -513,6 +524,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFn-NY-TRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1133.5877862595419" y="1542.9577464788733"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="pTh-dc-U2g">
+            <objects>
+                <viewController id="IiW-hZ-JvA" customClass="NewHomeVC" customModule="MINIMAL" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OyD-c3-feA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6gc-If-nPb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="GfV-E5-jI6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7VC-hH-aVo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="1543"/>
         </scene>
     </scenes>
     <resources>

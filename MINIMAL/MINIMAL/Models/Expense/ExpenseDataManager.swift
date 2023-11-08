@@ -10,6 +10,13 @@ import CoreData
 
 class ExpenseDataManadger: NSObject {
     
+    struct CategorySum: Identifiable {
+        var id = UUID()
+        
+        let category: String
+        let sum: Float
+    }
+    
     // function to fetech All Expenses
     static func fetchAllExpenses() -> [Expense] {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
@@ -109,6 +116,33 @@ class ExpenseDataManadger: NSObject {
                 print("Error deleting expense: \(error)")
             }
         }
+    }
+    
+    static func fetchCategorySum() -> [CategorySum] {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let managedContext = appDelegate.persistentContainer.viewContext
+
+            let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Expense")
+            fetchRequest.propertiesToFetch = ["category", "amount"]
+            fetchRequest.resultType = .dictionaryResultType
+
+            do {
+                let results = try managedContext.fetch(fetchRequest)
+                var categorySum = [CategorySum]()
+
+                for result in results {
+                    if let category = result["category"] as? String, let amount = result["amount"] as? Float {
+                        categorySum.append(CategorySum(category: category, sum: amount))
+                    }
+                }
+
+                return categorySum
+            } catch {
+                print("Error fetching category sums: \(error)")
+            }
+        }
+
+        return []
     }
     
 }

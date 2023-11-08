@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DGCharts
 
 class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, ExpenseAddedDelegate {
     
@@ -207,6 +208,7 @@ class HomePageVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         
         view.addSubview(addExpenseButton)
         addExpenseButton.addTarget(self, action: #selector(addExpenseBtnTapped), for: .touchDown)
+        
     }
     
     override func viewDidLayoutSubviews() {
