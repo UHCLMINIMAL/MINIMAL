@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class ExpenseDataManager: ObservableObject {
+    
     let container = NSPersistentContainer(name: "MinimalExpense")
     
     init() {
@@ -29,7 +30,7 @@ class ExpenseDataManager: ObservableObject {
         
     }
     
-    func addExpense(title: String, transactionType: String, amount: Double, category: String, expenseDate: Date, context: NSManagedObjectContext) {
+    func addExpense(title: String, transactionType: String, amount: Double, category: String, expenseDate: Date, frequency: String, context: NSManagedObjectContext) {
         
         let newExpense = Expense(context: context)
         newExpense.expenseID = UUID()
@@ -38,6 +39,7 @@ class ExpenseDataManager: ObservableObject {
         newExpense.amount = amount
         newExpense.category = category
         newExpense.expenseDate = expenseDate
+        newExpense.frequency = frequency
         newExpense.updatedOn = Date()
         newExpense.createdOn = Date()
         
@@ -54,6 +56,30 @@ class ExpenseDataManager: ObservableObject {
         expense.updatedOn = Date()
         
         save(context: context)
+    }
+    
+    func sumOfAmountsGroupedByCategory(context: NSManagedObjectContext) -> [DataStructs.CategorySum] {
+        
+        let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Expense")
+        fetchRequest.propertiesToFetch = ["category", "amount"]
+        fetchRequest.resultType = .dictionaryResultType
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            var categorySum = [DataStructs.CategorySum]()
+
+            for result in results {
+                if let category = result["category"] as? String, let amount = result["amount"] as? Double {
+                    categorySum.append(DataStructs.CategorySum(category: category, totalAmount: amount))
+                }
+            }
+
+            return categorySum
+        } catch {
+            print("Error fetching category sums: \(error)")
+        }
+        
+        return []
     }
         
 }

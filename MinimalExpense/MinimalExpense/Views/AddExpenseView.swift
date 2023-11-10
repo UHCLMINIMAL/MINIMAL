@@ -14,10 +14,15 @@ struct AddExpenseView: View {
     
     @State private var title = ""
     @State private var selectedtransactionTypeIndex = 1
-    @State private var amount = ""
+    @State private var selectedtransactionType = "Card"
+    @State private var amount = "0"
     @State private var category = ""
     @State private var selectedfrequencyIndex = 0
+    @State private var selectedfrequency = ""
     @State private var expenseDate = Date()
+    
+    let frequencies = ["Never", "Daily", "Weekly", "Monthly", "Quarterly", "Yearly"]
+    let transactionTypes = ["Cash", "Card"]
     
     init() {
         // Customizations for the UISegmentedControl
@@ -33,7 +38,9 @@ struct AddExpenseView: View {
                 Text("Add Expense")
                     .font(.title)
                 Spacer()
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    self.dismiss()
+                }, label: {
                     Image(systemName: "x.circle.fill")
                         .foregroundColor(.minimalTheme)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -52,10 +59,14 @@ struct AddExpenseView: View {
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 
                 Picker("Transaction Type", selection: $selectedtransactionTypeIndex) {
-                    Text("Cash").tag(0)
-                    Text("Card").tag(1)
+                    ForEach(transactionTypes.indices, id: \.self) { index in
+                        Text(transactionTypes[index]).tag(index)
+                    }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                .onChange(of: selectedtransactionTypeIndex, {
+                    selectedtransactionType = transactionTypes[selectedtransactionTypeIndex]
+                })
                 .accentColor(.red)
                 .padding()
             }
@@ -112,13 +123,14 @@ struct AddExpenseView: View {
                     Spacer()
                     
                     Picker("", selection: $selectedfrequencyIndex) {
-                        Text("Never").tag(0)
-                        Text("Daily").tag(1)
-                        Text("Weekly").tag(2)
-                        Text("Monthly").tag(3)
-                        Text("Quaterly").tag(4)
-                        Text("Yearly").tag(5)
+                        ForEach(frequencies.indices, id: \.self) { index in
+                            Text(frequencies[index]).tag(index)
+                        }
                     }
+                    .onChange(of: selectedfrequencyIndex, {
+                        selectedfrequency = frequencies[selectedfrequencyIndex]
+                        print(selectedfrequency)
+                    })
                     .tint(.black)
                     
                 }
@@ -126,7 +138,10 @@ struct AddExpenseView: View {
              
                 Spacer()
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    ExpenseDataManager().addExpense(title: title, transactionType: selectedtransactionType, amount: Double(amount) ?? 0, category: category, expenseDate: expenseDate, frequency: selectedtransactionType ,context: managedObjConetxt)
+                    self.dismiss()
+                }, label: {
                     Text("Add Expense")
                 })
                 .padding([.top, .bottom], 10)
@@ -137,6 +152,7 @@ struct AddExpenseView: View {
                 .shadow(color: .gray.opacity(0.2), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 0, y:5)
                 .padding()
             }
+            .padding(10)
         }
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
         .background(Color(.systemGray5))
