@@ -11,9 +11,20 @@ import Charts
 struct HomeTabView: View {
     
     @Environment (\.managedObjectContext) var managedObjConetxt
+    
     private var categorySums: [DataStructs.CategorySum] {
-        ExpenseDataManager().sumOfAmountsGroupedByCategory(context: managedObjConetxt)
+        ExpenseViewModel().sumOfAmountsGroupedByCategory(context: managedObjConetxt)
     }
+    
+    private var transactionGroupedData: [DataStructs.TransactionTypeGrouped] {
+        ExpenseViewModel().calculateTotalAmountAndCountByTransactionType(context: managedObjConetxt)
+    }
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Expense.createdOn, ascending: false)],
+        animation: .default)
+    
+    private var expenses: FetchedResults<Expense>
     
     var body: some View {
         NavigationView{
@@ -49,7 +60,10 @@ struct HomeTabView: View {
                             .fill(Color(.systemGray5))
                     }
                     
-                    RecentExpensesCard()
+                    ExpensesCard(expenses: expenses)
+                    
+                    TransactionTypeCard(transactionTypeGroupedData: transactionGroupedData, expenses: expenses)
+                    
                 }
                 .padding()
                 .frame(maxWidth: .infinity)

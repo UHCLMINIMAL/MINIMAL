@@ -48,8 +48,6 @@ struct HomeView: View {
                         Image(systemName: "person.fill")
                         Text("Profile")
                     }
-                
-                // Add more tabs as needed
             }
             
             VStack {

@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3206E69F2AFF606B00EA1E83 /* TransactionTypeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3206E69E2AFF606B00EA1E83 /* TransactionTypeCard.swift */; };
+		3206E6A32AFF60A300EA1E83 /* TransactionTypeGroupedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3206E6A22AFF60A200EA1E83 /* TransactionTypeGroupedRow.swift */; };
 		324461BE2AFD23C700AF243A /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461BD2AFD23C700AF243A /* TransactionRow.swift */; };
 		324461C02AFD240500AF243A /* RecentExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461BF2AFD240500AF243A /* RecentExpensesView.swift */; };
 		324461C22AFD260E00AF243A /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C12AFD260E00AF243A /* HomeTabView.swift */; };
 		324461C42AFD264A00AF243A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C32AFD264A00AF243A /* Extensions.swift */; };
 		324461C62AFD2E4F00AF243A /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C52AFD2E4F00AF243A /* DataStructs.swift */; };
-		324461C82AFD95D200AF243A /* RecentExpensesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C72AFD95D200AF243A /* RecentExpensesCard.swift */; };
+		324461C82AFD95D200AF243A /* ExpensesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C72AFD95D200AF243A /* ExpensesCard.swift */; };
 		324461CA2AFD973100AF243A /* RecentExpensesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C92AFD973100AF243A /* RecentExpensesListView.swift */; };
 		327E07712AFC346300778582 /* MinimalExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07702AFC346300778582 /* MinimalExpenseApp.swift */; };
 		327E07732AFC346300778582 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07722AFC346300778582 /* HomeView.swift */; };
@@ -23,7 +25,7 @@
 		327E07872AFC346500778582 /* MinimalExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07862AFC346500778582 /* MinimalExpenseTests.swift */; };
 		327E07912AFC346500778582 /* MinimalExpenseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07902AFC346500778582 /* MinimalExpenseUITests.swift */; };
 		327E07932AFC346500778582 /* MinimalExpenseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07922AFC346500778582 /* MinimalExpenseUITestsLaunchTests.swift */; };
-		327E07A12AFC35A800778582 /* ExpenseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07A02AFC35A800778582 /* ExpenseDataManager.swift */; };
+		327E07A12AFC35A800778582 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07A02AFC35A800778582 /* ExpenseViewModel.swift */; };
 		327E07A52AFC3AE300778582 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07A42AFC3AE300778582 /* AddExpenseView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,12 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3206E69E2AFF606B00EA1E83 /* TransactionTypeCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTypeCard.swift; sourceTree = "<group>"; };
+		3206E6A22AFF60A200EA1E83 /* TransactionTypeGroupedRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTypeGroupedRow.swift; sourceTree = "<group>"; };
 		324461BD2AFD23C700AF243A /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		324461BF2AFD240500AF243A /* RecentExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpensesView.swift; sourceTree = "<group>"; };
 		324461C12AFD260E00AF243A /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		324461C32AFD264A00AF243A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		324461C52AFD2E4F00AF243A /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
-		324461C72AFD95D200AF243A /* RecentExpensesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpensesCard.swift; sourceTree = "<group>"; };
+		324461C72AFD95D200AF243A /* ExpensesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCard.swift; sourceTree = "<group>"; };
 		324461C92AFD973100AF243A /* RecentExpensesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentExpensesListView.swift; sourceTree = "<group>"; };
 		327E076D2AFC346300778582 /* MinimalExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinimalExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327E07702AFC346300778582 /* MinimalExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalExpenseApp.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		327E078C2AFC346500778582 /* MinimalExpenseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinimalExpenseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		327E07902AFC346500778582 /* MinimalExpenseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalExpenseUITests.swift; sourceTree = "<group>"; };
 		327E07922AFC346500778582 /* MinimalExpenseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalExpenseUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		327E07A02AFC35A800778582 /* ExpenseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataManager.swift; sourceTree = "<group>"; };
+		327E07A02AFC35A800778582 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		327E07A42AFC3AE300778582 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3206E69A2AFF50F500EA1E83 /* Recent Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				324461C72AFD95D200AF243A /* ExpensesCard.swift */,
+				324461BD2AFD23C700AF243A /* TransactionRow.swift */,
+				324461BF2AFD240500AF243A /* RecentExpensesView.swift */,
+				324461C92AFD973100AF243A /* RecentExpensesListView.swift */,
+			);
+			path = "Recent Expenses";
+			sourceTree = "<group>";
+		};
+		3206E6A42AFF60B500EA1E83 /* Transaction Group Card */ = {
+			isa = PBXGroup;
+			children = (
+				3206E6A22AFF60A200EA1E83 /* TransactionTypeGroupedRow.swift */,
+				3206E69E2AFF606B00EA1E83 /* TransactionTypeCard.swift */,
+			);
+			path = "Transaction Group Card";
+			sourceTree = "<group>";
+		};
+		3206E6A52AFF62F700EA1E83 /* Home Tab */ = {
+			isa = PBXGroup;
+			children = (
+				324461C12AFD260E00AF243A /* HomeTabView.swift */,
+				327E07A42AFC3AE300778582 /* AddExpenseView.swift */,
+			);
+			path = "Home Tab";
+			sourceTree = "<group>";
+		};
+		3206E6A62AFF630D00EA1E83 /* Budget Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Budget Tab";
+			sourceTree = "<group>";
+		};
+		3206E6A72AFF631300EA1E83 /* Reports Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Reports Tab";
+			sourceTree = "<group>";
+		};
+		3206E6A82AFF631C00EA1E83 /* Settings Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Settings Tab";
+			sourceTree = "<group>";
+		};
+		3206E6A92AFF632600EA1E83 /* Profile Tab */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Profile Tab";
+			sourceTree = "<group>";
+		};
 		327E07642AFC346300778582 = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				327E077B2AFC346500778582 /* MinimalExpense.xcdatamodeld */,
-				327E07A02AFC35A800778582 /* ExpenseDataManager.swift */,
+				327E07A02AFC35A800778582 /* ExpenseViewModel.swift */,
 				324461C52AFD2E4F00AF243A /* DataStructs.swift */,
 			);
 			path = DataModel;
@@ -166,12 +227,13 @@
 			isa = PBXGroup;
 			children = (
 				327E07722AFC346300778582 /* HomeView.swift */,
-				327E07A42AFC3AE300778582 /* AddExpenseView.swift */,
-				324461BD2AFD23C700AF243A /* TransactionRow.swift */,
-				324461BF2AFD240500AF243A /* RecentExpensesView.swift */,
-				324461C12AFD260E00AF243A /* HomeTabView.swift */,
-				324461C72AFD95D200AF243A /* RecentExpensesCard.swift */,
-				324461C92AFD973100AF243A /* RecentExpensesListView.swift */,
+				3206E6A92AFF632600EA1E83 /* Profile Tab */,
+				3206E6A82AFF631C00EA1E83 /* Settings Tab */,
+				3206E6A72AFF631300EA1E83 /* Reports Tab */,
+				3206E6A62AFF630D00EA1E83 /* Budget Tab */,
+				3206E6A52AFF62F700EA1E83 /* Home Tab */,
+				3206E6A42AFF60B500EA1E83 /* Transaction Group Card */,
+				3206E69A2AFF50F500EA1E83 /* Recent Expenses */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,15 +377,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				327E077A2AFC346500778582 /* Persistence.swift in Sources */,
-				327E07A12AFC35A800778582 /* ExpenseDataManager.swift in Sources */,
+				327E07A12AFC35A800778582 /* ExpenseViewModel.swift in Sources */,
+				3206E69F2AFF606B00EA1E83 /* TransactionTypeCard.swift in Sources */,
 				324461CA2AFD973100AF243A /* RecentExpensesListView.swift in Sources */,
 				324461C02AFD240500AF243A /* RecentExpensesView.swift in Sources */,
 				324461C22AFD260E00AF243A /* HomeTabView.swift in Sources */,
 				327E07732AFC346300778582 /* HomeView.swift in Sources */,
-				324461C82AFD95D200AF243A /* RecentExpensesCard.swift in Sources */,
+				324461C82AFD95D200AF243A /* ExpensesCard.swift in Sources */,
 				324461C42AFD264A00AF243A /* Extensions.swift in Sources */,
 				327E07A52AFC3AE300778582 /* AddExpenseView.swift in Sources */,
 				324461BE2AFD23C700AF243A /* TransactionRow.swift in Sources */,
+				3206E6A32AFF60A300EA1E83 /* TransactionTypeGroupedRow.swift in Sources */,
 				327E077D2AFC346500778582 /* MinimalExpense.xcdatamodeld in Sources */,
 				324461C62AFD2E4F00AF243A /* DataStructs.swift in Sources */,
 				327E07712AFC346300778582 /* MinimalExpenseApp.swift in Sources */,

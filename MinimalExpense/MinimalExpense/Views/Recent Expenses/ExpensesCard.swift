@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct RecentExpensesCard: View {
+struct ExpensesCard: View {
+    
+    var expenses: FetchedResults<Expense>
     
     var body: some View {
         VStack {
@@ -17,7 +19,7 @@ struct RecentExpensesCard: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: RecentExpensesListView()) {
+                NavigationLink(destination: RecentExpensesListView(expenses: expenses)) {
                     HStack(spacing: 4) {
                         Text("See All")
                             .font(.headline)
@@ -28,15 +30,11 @@ struct RecentExpensesCard: View {
             }
             .padding(.top)
             
-            RecentEcpensesView(isHomeView: true)
+            RecentEcpensesView(expenses: expenses, isHomeView: true)
         }
         .padding()
         .background(Color(.systemGray5))
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: .gray.opacity(0.5), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 0, y:5)
     }
-}
-
-#Preview {
-    RecentExpensesCard()
 }

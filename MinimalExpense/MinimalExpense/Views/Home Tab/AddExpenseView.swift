@@ -139,7 +139,7 @@ struct AddExpenseView: View {
                 Spacer()
                 
                 Button(action: {
-                    ExpenseDataManager().addExpense(title: title, transactionType: selectedtransactionType, amount: Double(amount) ?? 0, category: category, expenseDate: expenseDate, frequency: selectedtransactionType ,context: managedObjConetxt)
+                    ExpenseViewModel().addExpense(title: title, transactionType: selectedtransactionType, amount: Double(amount) ?? 0, category: category, expenseDate: expenseDate, frequency: selectedtransactionType ,context: managedObjConetxt)
                     self.dismiss()
                 }, label: {
                     Text("Add Expense")

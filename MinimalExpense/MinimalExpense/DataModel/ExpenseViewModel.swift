@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class ExpenseDataManager: ObservableObject {
+class ExpenseViewModel: ObservableObject {
     
     let container = NSPersistentContainer(name: "MinimalExpense")
     
@@ -80,6 +80,45 @@ class ExpenseDataManager: ObservableObject {
         }
         
         return []
+    }
+    
+    func calculateTotalAmountAndCountByTransactionType(context: NSManagedObjectContext) -> [DataStructs.TransactionTypeGrouped] {
+        let fetchRequest = NSFetchRequest<Expense>(entityName: "Expense")
+        
+        // Calculate the start date and end date for the current month
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let startDateComponents = calendar.dateComponents([.year, .month], from: currentDate)
+        let startDate = calendar.date(from: startDateComponents)!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startDate)!
+        
+        // Create a predicate to filter expenses for the current month
+        let predicate = NSPredicate(format: "expenseDate >= %@ AND expenseDate <= %@", startDate as CVarArg, endOfMonth as CVarArg)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            
+            // Use reduce to calculate total amount and count
+            let totalAmountAndCountByTransactionType = results.reduce(into: [String: DataStructs.TransactionTypeGrouped.TransactionTypeValues]()) { result, expense in
+                if let transactionType = expense.transactionType {
+                    let amount = expense.amount
+                    result[transactionType, default: DataStructs.TransactionTypeGrouped.TransactionTypeValues(totalAmount: 0, count: 0)].totalAmount += amount
+                    result[transactionType, default: DataStructs.TransactionTypeGrouped.TransactionTypeValues(totalAmount: 0, count: 0)].count += 1
+                }
+            }
+            
+            // Convert the dictionary values to an array of TransactionTypeGrouped
+            let resultArray = totalAmountAndCountByTransactionType.map { key, value in
+                DataStructs.TransactionTypeGrouped(data: [key: value])
+            }
+            
+            return resultArray
+        } catch {
+            print("Error fetching category sums: \(error)")
+        }
+        
+        return [DataStructs.TransactionTypeGrouped(data: [:])]
     }
         
 }
