@@ -58,6 +58,16 @@ class ExpenseViewModel: ObservableObject {
         save(context: context)
     }
     
+    func deleteExpense(expense: Expense, context: NSManagedObjectContext) {
+        context.delete(expense)
+        do {
+            try context.save()
+            print("Expense Deleted")
+        } catch {
+            print("Data Deleted Failed")
+        }
+    }
+    
     func sumOfAmountsGroupedByCategory(context: NSManagedObjectContext) -> [DataStructs.CategorySum] {
         
         let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Expense")

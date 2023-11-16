@@ -36,14 +36,14 @@ struct HomeView: View {
                     }
                 
                 // Tab 3
-                Text("Settings")
+                SettingsTab()
                     .tabItem {
                         Image(systemName: "gear")
                         Text("Settings")
                     }
                 
                 // Tab 3
-                Text("Profile")
+                ProfileView()
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("Profile")

@@ -26,15 +26,27 @@ struct HomeTabView: View {
     
     private var expenses: FetchedResults<Expense>
     
+    // Create a date formatter to format the date
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM, yyyy"
+        return formatter
+    }()
+    
     var body: some View {
         NavigationView{
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     
-                    Text("Home")
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .multilineTextAlignment(.leading)
+                    HStack {
+                        Text("Home")
+                            .font(.title2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                        
+                        Text(dateFormatter.string(from: Date()))
+                    }
+                    
                     
                     VStack(alignment: .trailing, spacing: 12) {
                         

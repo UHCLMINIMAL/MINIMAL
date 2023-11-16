@@ -14,7 +14,7 @@ struct TransactionRow: View {
     var body: some View {
         HStack(spacing: 20) {
             
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
+            RoundedRectangle(cornerRadius: 50, style: .continuous)
                 .frame(width: 45, height: 45)
                 .overlay {
                     Image(expense.category ?? "")
@@ -31,6 +31,7 @@ struct TransactionRow: View {
                 
                 Text(expense.transactionType ?? "Card")
                     .font(.footnote)
+                    .foregroundColor(expense.transactionType == "Card" ? Color(.minimalTheme) : Color(.systemGreen))
                     .lineLimit(1)
                     .opacity(0.7)
                 Text(expense.expenseDate ?? Date(), format: .dateTime.year().month().day())
