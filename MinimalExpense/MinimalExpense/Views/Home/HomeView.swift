@@ -29,7 +29,7 @@ struct HomeView: View {
                     }
                 
                 // Tab 3
-                Text("Reports")
+                ReportView()
                     .tabItem {
                         Image(systemName: "chart.line.uptrend.xyaxis")
                         Text("Reports")

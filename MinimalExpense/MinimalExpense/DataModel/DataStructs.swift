@@ -14,6 +14,18 @@ class DataStructs {
         var totalAmount: Double
     }
     
+    struct AmountByDate: Identifiable {
+        var id = UUID()
+        var expenseDate: Date
+        var totalAmount: Double
+        
+        var formattedDate: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.string(from: expenseDate)
+        }
+    }
+    
     struct TransactionTypeGrouped: Identifiable {
         struct TransactionTypeValues {
             var totalAmount: Double

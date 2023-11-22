@@ -19,3 +19,11 @@ extension Double {
         return String(format: "$%.0f", self)
     }
 }
+
+extension DateFormatter {
+    static let month: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM"
+        return formatter
+    }()
+}
