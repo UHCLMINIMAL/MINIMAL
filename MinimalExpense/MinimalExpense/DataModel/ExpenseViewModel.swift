@@ -68,29 +68,85 @@ class ExpenseViewModel: ObservableObject {
         }
     }
     
+    
     func sumOfAmountsGroupedByCategory(context: NSManagedObjectContext) -> [DataStructs.CategorySum] {
+        let fetchRequest = NSFetchRequest<Expense>(entityName: "Expense")
         
-        let fetchRequest = NSFetchRequest<NSDictionary>(entityName: "Expense")
-        fetchRequest.propertiesToFetch = ["category", "amount"]
-        fetchRequest.resultType = .dictionaryResultType
-
+        // Calculate the start date and end date for the current month
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let startDateComponents = calendar.dateComponents([.year, .month], from: currentDate)
+        let startDate = calendar.date(from: startDateComponents)!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startDate)!
+        
+        // Create a predicate to filter expenses for the current month
+        let predicate = NSPredicate(format: "expenseDate >= %@ AND expenseDate <= %@", startDate as CVarArg, endOfMonth as CVarArg)
+        fetchRequest.predicate = predicate
+        
         do {
             let results = try context.fetch(fetchRequest)
-            var categorySum = [DataStructs.CategorySum]()
-
-            for result in results {
-                if let category = result["category"] as? String, let amount = result["amount"] as? Double {
-                    categorySum.append(DataStructs.CategorySum(category: category, totalAmount: amount))
+            
+            // Use reduce to calculate total amount by date
+            let totalAmountByCategory = results.reduce(into: [String: Double]()) { result, expense in
+                if let category = expense.category {
+                    let amount = expense.amount
+                    result[category, default: 0.0] += amount
                 }
             }
-            print(categorySum)
-            return categorySum
+            
+            // Convert the dictionary values to an array of AmountByDate
+            let resultArray = totalAmountByCategory.map { (key, value) in
+                return DataStructs.CategorySum(category: key, totalAmount: value)
+            }
+            print(resultArray)
+            return resultArray
         } catch {
-            print("Error fetching category sums: \(error)")
+            print("Error fetching expenses: \(error)")
+            return []
         }
-        
-        return []
     }
+    
+    func calculateTotalAmountByDate(context: NSManagedObjectContext) -> [DataStructs.AmountByDate] {
+        
+        let fetchRequest = NSFetchRequest<Expense>(entityName: "Expense")
+        
+        // Calculate the start date and end date for the current month
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let startDateComponents = calendar.dateComponents([.year, .month], from: currentDate)
+        let startDate = calendar.date(from: startDateComponents)!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startDate)!
+        
+        // Create a predicate to filter expenses for the current month
+        let predicate = NSPredicate(format: "expenseDate >= %@ AND expenseDate <= %@", startDate as CVarArg, endOfMonth as CVarArg)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            
+            // Use reduce to calculate total amount by date
+            let totalAmountByDate = results.reduce(into: [Date: Double]()) { result, expense in
+                if let date = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: expense.expenseDate ?? Date())) {
+                    let amount = expense.amount
+                    result[date, default: 0.0] += amount
+                }
+            }
+            
+            // Convert the dictionary values to an array of AmountByDate
+            let resultArray = totalAmountByDate.map { (key, value) in
+                // Extract only the date component from the key
+                let dateOnly = calendar.dateComponents([.year, .month, .day], from: key)
+                return DataStructs.AmountByDate(expenseDate: calendar.date(from: dateOnly) ?? Date(), totalAmount: value)
+            }
+            
+            return resultArray.sorted { $0.expenseDate < $1.expenseDate }
+        } catch {
+            print("Error fetching expenses: \(error)")
+            return []
+        }
+    }
+    
+    
     
     func calculateTotalAmountAndCountByTransactionType(context: NSManagedObjectContext) -> [DataStructs.TransactionTypeGrouped] {
         let fetchRequest = NSFetchRequest<Expense>(entityName: "Expense")
@@ -129,44 +185,5 @@ class ExpenseViewModel: ObservableObject {
         }
         
         return [DataStructs.TransactionTypeGrouped(data: [:])]
-    }
-    
-    func calculateTotalAmountByDate(context: NSManagedObjectContext) -> [DataStructs.AmountByDate] {
-        let fetchRequest = NSFetchRequest<Expense>(entityName: "Expense")
-        
-        // Calculate the start date and end date for the current month
-        let calendar = Calendar.current
-        let currentDate = Date()
-        let startDateComponents = calendar.dateComponents([.year, .month], from: currentDate)
-        let startDate = calendar.date(from: startDateComponents)!
-        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startDate)!
-        
-        // Create a predicate to filter expenses for the current month
-        let predicate = NSPredicate(format: "expenseDate >= %@ AND expenseDate <= %@", startDate as CVarArg, endOfMonth as CVarArg)
-        fetchRequest.predicate = predicate
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            
-            // Use reduce to calculate total amount by date
-            let totalAmountByDate = results.reduce(into: [Date: Double]()) { result, expense in
-                if let date = calendar.date(from: calendar.dateComponents([.year, .month, .day], from: expense.expenseDate ?? Date())) {
-                    let amount = expense.amount
-                    result[date, default: 0.0] += amount
-                }
-            }
-            
-             // Convert the dictionary values to an array of AmountByDate
-              let resultArray = totalAmountByDate.map { (key, value) in
-                  // Extract only the date component from the key
-                  let dateOnly = calendar.dateComponents([.year, .month, .day], from: key)
-                  return DataStructs.AmountByDate(expenseDate: calendar.date(from: dateOnly) ?? Date(), totalAmount: value)
-              }
-                    
-            return resultArray.sorted { $0.expenseDate < $1.expenseDate }
-        } catch {
-            print("Error fetching expenses: \(error)")
-            return []
-        }
     }
 }

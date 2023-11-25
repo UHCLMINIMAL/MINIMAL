@@ -71,18 +71,6 @@ struct ReportView: View {
         .frame(maxWidth: .infinity)
     }
     
-    func extractDate(from dateTime: Date) -> Date {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day], from: dateTime)
-        
-        if let extractedDate = calendar.date(from: components) {
-            return extractedDate
-        } else {
-            // Handle the case where extraction fails, e.g., return the original date
-            return dateTime
-        }
-    }
-    
     @ViewBuilder
     func monthlyExpensesChartView() -> some View {
         
