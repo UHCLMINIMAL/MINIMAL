@@ -61,7 +61,21 @@ struct ReportView: View {
                     .fill(Color(.systemGray5))
             }
             
-            categoryPieChart()
+            VStack {
+                Text("Spending By Category")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                    .font(.title2)
+                
+                categoryPieChart()
+                
+                
+            }
+            .padding()
+            .background {
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(Color(.systemGray5))
+            }
             
             Spacer()
             
@@ -106,6 +120,7 @@ struct ReportView: View {
             .foregroundStyle(by: .value("Category", expense.category))
         }
         .padding()
+        .chartLegend(position: .trailing, alignment: .leadingFirstTextBaseline, spacing: 5)
         .frame(height: 150)
         
     }
