@@ -39,47 +39,50 @@ struct ReportView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .multilineTextAlignment(.leading)
             
-            VStack(alignment: .leading, spacing: 12) {
-                
-                HStack {
-                    Text(dateFormatter.string(from: Date()))
-                        .font(.title2)
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    VStack(alignment: .leading, spacing: 12) {
+                        
+                        HStack {
+                            Text(dateFormatter.string(from: Date()))
+                                .font(.title2)
+                            
+                            Spacer()
+                            
+                            Text(90000.stringFormat)
+                                .font(.title2)
+                            
+                        }
+                        .padding(.bottom)
+                        
+                        monthlyExpensesChartView()
+                    }
+                    .padding()
+                    .background {
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color(.systemGray5))
+                    }
                     
+                    VStack {
+                        Text("Spending By Category")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                            .font(.title2)
+                        
+                        categoryPieChart()
+                        
+                        expensesListView()
+                            .frame(height: 300)
+                        
+                    }
+                    .padding()
+                    .background {
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color(.systemBackground))
+                    }
                     Spacer()
-                    
-                    Text(90000.stringFormat)
-                        .font(.title2)
-                    
                 }
-                .padding(.bottom)
-                
-                monthlyExpensesChartView()
             }
-            .padding()
-            .background {
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(Color(.systemGray5))
-            }
-            
-            VStack {
-                Text("Spending By Category")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                    .font(.title2)
-                
-                categoryPieChart()
-                
-                
-            }
-            .padding()
-            .background {
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(Color(.systemGray5))
-            }
-            
-            Spacer()
-            
-            
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -121,13 +124,32 @@ struct ReportView: View {
         }
         .padding()
         .chartLegend(position: .trailing, alignment: .leadingFirstTextBaseline, spacing: 5)
-        .frame(height: 150)
+        .frame(height: 100)
         
     }
-        
+    
+    
+    @ViewBuilder
+    func expensesListView() -> some View {
+        List(categorySums.sorted(by: { $0.totalAmount > $1.totalAmount })) { expense in
+            HStack {
+                RoundedRectangle(cornerRadius: 50, style: .continuous)
+                    .frame(width: 30, height: 30)
+                    .overlay {
+                        Image(expense.category)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                    }
+                Text(expense.category)
+                Spacer()
+                Text(expense.totalAmount.stringFormat)
+            }
+        }
+        .padding()
+        .listStyle(PlainListStyle())
+    }
 }
-
-
 
 #Preview {
     ReportView()
