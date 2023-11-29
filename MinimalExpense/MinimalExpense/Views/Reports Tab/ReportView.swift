@@ -32,6 +32,9 @@ struct ReportView: View {
     }()
     
     var body: some View {
+        
+        let totalSum = categorySums.reduce(0) { $0 + $1.totalAmount }
+        
         VStack(alignment: .leading, spacing: 20) {
             
             Text("Analysis")
@@ -49,7 +52,7 @@ struct ReportView: View {
                             
                             Spacer()
                             
-                            Text(90000.stringFormat)
+                            Text(totalSum.stringFormat)
                                 .font(.title2)
                             
                         }
@@ -131,6 +134,7 @@ struct ReportView: View {
     
     @ViewBuilder
     func expensesListView() -> some View {
+        
         List(categorySums.sorted(by: { $0.totalAmount > $1.totalAmount })) { expense in
             HStack {
                 RoundedRectangle(cornerRadius: 50, style: .continuous)

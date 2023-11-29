@@ -34,6 +34,9 @@ struct HomeTabView: View {
     }()
     
     var body: some View {
+        
+        let totalSum = categorySums.reduce(0) { $0 + $1.totalAmount }
+        
         NavigationView{
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
@@ -51,7 +54,7 @@ struct HomeTabView: View {
                     VStack(alignment: .trailing, spacing: 12) {
                         
                         HStack {
-                            Text(90000.stringFormat)
+                            Text(totalSum.stringFormat)
                                 .font(.largeTitle.bold())
                             Spacer()
                             Button(action: {}) {

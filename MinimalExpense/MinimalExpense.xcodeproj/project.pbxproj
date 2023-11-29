@@ -15,6 +15,7 @@
 		324461C42AFD264A00AF243A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C32AFD264A00AF243A /* Extensions.swift */; };
 		324461C62AFD2E4F00AF243A /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C52AFD2E4F00AF243A /* DataStructs.swift */; };
 		324461C82AFD95D200AF243A /* ExpensesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324461C72AFD95D200AF243A /* ExpensesCard.swift */; };
+		32550F632B16F2BC00A9E77B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32550F622B16F2BC00A9E77B /* CategoryView.swift */; };
 		326B71792B06604400C8EAE1 /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B71782B06604400C8EAE1 /* SettingsTab.swift */; };
 		326B717B2B0660FE00C8EAE1 /* SettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B717A2B0660FE00C8EAE1 /* SettingsRow.swift */; };
 		326B717D2B06717400C8EAE1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B717C2B06717400C8EAE1 /* ProfileView.swift */; };
@@ -58,6 +59,7 @@
 		324461C32AFD264A00AF243A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		324461C52AFD2E4F00AF243A /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
 		324461C72AFD95D200AF243A /* ExpensesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCard.swift; sourceTree = "<group>"; };
+		32550F622B16F2BC00A9E77B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		326B71782B06604400C8EAE1 /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		326B717A2B0660FE00C8EAE1 /* SettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRow.swift; sourceTree = "<group>"; };
 		326B717C2B06717400C8EAE1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				3206E6A52AFF62F700EA1E83 /* Home Tab */,
 				3206E6A42AFF60B500EA1E83 /* Transaction Group Card */,
 				3206E69A2AFF50F500EA1E83 /* Recent Expenses */,
+				32550F622B16F2BC00A9E77B /* CategoryView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				3206E69F2AFF606B00EA1E83 /* TransactionTypeCard.swift in Sources */,
 				324461C02AFD240500AF243A /* RecentExpensesView.swift in Sources */,
 				324461C22AFD260E00AF243A /* HomeTabView.swift in Sources */,
+				32550F632B16F2BC00A9E77B /* CategoryView.swift in Sources */,
 				326B717B2B0660FE00C8EAE1 /* SettingsRow.swift in Sources */,
 				327E07732AFC346300778582 /* HomeView.swift in Sources */,
 				324461C82AFD95D200AF243A /* ExpensesCard.swift in Sources */,
