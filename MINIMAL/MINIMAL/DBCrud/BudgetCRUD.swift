@@ -48,7 +48,7 @@ class BudgetCRUD: NSObject {
 
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Budget")
 
-            fetchRequest.predicate = NSPredicate(format: "budgetPeriod == %@", period as CVarArg)
+            fetchRequest.predicate = NSPredicate(format: "budgetPeriod == %d", perioda)
             
             do {
                 let records = try managedContext.fetch(fetchRequest) as? [Budget]
