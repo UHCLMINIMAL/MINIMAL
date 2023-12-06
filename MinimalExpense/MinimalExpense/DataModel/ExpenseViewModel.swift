@@ -98,7 +98,6 @@ class ExpenseViewModel: ObservableObject {
             let resultArray = totalAmountByCategory.map { (key, value) in
                 return DataStructs.CategorySum(category: key, totalAmount: value)
             }
-            print(resultArray)
             return resultArray
         } catch {
             print("Error fetching expenses: \(error)")

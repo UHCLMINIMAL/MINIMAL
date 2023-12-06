@@ -8,7 +8,75 @@
 import Foundation
 import CoreData
 
-class BudgetViewModel: ObservableObject {
+class BudgetViewModel: ObservableObject { 
+    
+    let container = NSPersistentContainer(name: "MinimalExpense")
+    
+    init() {
+        container.loadPersistentStores { desc, error in
+            if let error = error {
+                print("Failed to load the data \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func save(context: NSManagedObjectContext) {
+        do {
+            try context.save()
+            print("Expense Saved")
+        } catch {
+            print("Data Saved Failed")
+        }
+        
+    }
+    
+    func addBudget(budgetAmount: Double, budgetPeriod: Int64, createdOn: Date, spentAmount: Double, updatedOn: Data, context: NSManagedObjectContext) {
+        
+        let newBudget = Budget(context: context)
+        
+        newBudget.budgetID = UUID()
+        newBudget.budgetAmount = budgetAmount
+        newBudget.budgetPeriod = budgetPeriod
+        newBudget.createdOn = Date()
+        newBudget.spentAmount = spentAmount
+        newBudget.updatedOn = Date()
+        
+        save(context: context)
+    }
+    
+    // get Budget Amount for the selected Month
+    func retriveBudget(budgetPeriod: Int64, context: NSManagedObjectContext) -> Double {
+        
+        let fetchRequest = NSFetchRequest<Expense>(entityName: "Budget")
+        
+        // Create a predicate to filter budget for the selected month
+        let predicate = NSPredicate(format: "budgetPeriod >= %@", budgetPeriod as CVarArg)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            
+            if let budget = results.first {
+                let budgetAmount = budget.amount
+                return budgetAmount
+            } else {
+                return 0
+            }
+        } catch {
+            print("Error fetching expenses: \(error)")
+            return 0
+        }
+    }
+    
+    func deleteBudget(budget: Budget, context: NSManagedObjectContext) {
+        context.delete(budget)
+        do {
+            try context.save()
+            print("Budget Deleted")
+        } catch {
+            print("Data Deleted Failed")
+        }
+    }
     
     func getMonthYearListFromCurrentDate() -> [String] {
         let currentDate = Date()
