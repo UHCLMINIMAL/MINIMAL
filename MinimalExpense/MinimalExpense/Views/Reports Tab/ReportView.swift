@@ -135,6 +135,8 @@ struct ReportView: View {
     @ViewBuilder
     func expensesListView() -> some View {
         
+        let totalSum = categorySums.reduce(0) { $0 + $1.totalAmount }
+        
         List(categorySums.sorted(by: { $0.totalAmount > $1.totalAmount })) { expense in
             HStack {
                 RoundedRectangle(cornerRadius: 50, style: .continuous)
@@ -148,6 +150,8 @@ struct ReportView: View {
                 Text(expense.category)
                 Spacer()
                 Text(expense.totalAmount.stringFormat)
+                Text("("+String(format: "%.2f%%",(expense.totalAmount/totalSum)*100)+")")
+                    .font(.footnote)
             }
         }
         .padding()

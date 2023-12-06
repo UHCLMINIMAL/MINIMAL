@@ -31,6 +31,8 @@
 		327E07932AFC346500778582 /* MinimalExpenseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07922AFC346500778582 /* MinimalExpenseUITestsLaunchTests.swift */; };
 		327E07A12AFC35A800778582 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07A02AFC35A800778582 /* ExpenseViewModel.swift */; };
 		327E07A52AFC3AE300778582 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E07A42AFC3AE300778582 /* AddExpenseView.swift */; };
+		32C012452B17FE0D006270E6 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C012442B17FE0D006270E6 /* BudgetView.swift */; };
+		32FF0F902B1BBE0F000A8F57 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FF0F8F2B1BBE0F000A8F57 /* BudgetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		327E07922AFC346500778582 /* MinimalExpenseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalExpenseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		327E07A02AFC35A800778582 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		327E07A42AFC3AE300778582 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		32C012442B17FE0D006270E6 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
+		32FF0F8F2B1BBE0F000A8F57 /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 		3206E6A62AFF630D00EA1E83 /* Budget Tab */ = {
 			isa = PBXGroup;
 			children = (
+				32C012442B17FE0D006270E6 /* BudgetView.swift */,
 			);
 			path = "Budget Tab";
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				327E077B2AFC346500778582 /* MinimalExpense.xcdatamodeld */,
 				327E07A02AFC35A800778582 /* ExpenseViewModel.swift */,
 				324461C52AFD2E4F00AF243A /* DataStructs.swift */,
+				32FF0F8F2B1BBE0F000A8F57 /* BudgetViewModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -413,6 +419,8 @@
 				326B717B2B0660FE00C8EAE1 /* SettingsRow.swift in Sources */,
 				327E07732AFC346300778582 /* HomeView.swift in Sources */,
 				324461C82AFD95D200AF243A /* ExpensesCard.swift in Sources */,
+				32FF0F902B1BBE0F000A8F57 /* BudgetViewModel.swift in Sources */,
+				32C012452B17FE0D006270E6 /* BudgetView.swift in Sources */,
 				324461C42AFD264A00AF243A /* Extensions.swift in Sources */,
 				326B717D2B06717400C8EAE1 /* ProfileView.swift in Sources */,
 				327E07A52AFC3AE300778582 /* AddExpenseView.swift in Sources */,

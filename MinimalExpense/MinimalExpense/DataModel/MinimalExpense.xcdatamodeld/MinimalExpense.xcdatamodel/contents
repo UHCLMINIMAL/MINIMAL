@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
+        <attribute name="budgetAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="budgetPeriod" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="budgetType" optional="YES" attributeType="String"/>
+        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="spentAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="updatedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="category" optional="YES" attributeType="String"/>

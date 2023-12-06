@@ -22,7 +22,7 @@ struct HomeView: View {
                     }
                 
                 // Tab 2
-                Text("Budget")
+                BudgetView()
                     .tabItem {
                         Image(systemName: "dollarsign")
                         Text("Budget")
