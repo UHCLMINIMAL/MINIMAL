@@ -10,22 +10,26 @@ import SwiftUI
 struct TransactionRow: View {
     
     @Environment(\.managedObjectContext) var managedObjConetxt
-    
     var expenses: FetchedResults<Expense>
-    
     var expense: Expense
+    
+    let categoryImageMapping: [String: String] = [
+           "Groceries": "cart.circle",
+           "LifeStyle": "heart.circle",
+           "Travel": "car.circle",
+           "Medical": "cross.case.circle",
+           "Food": "fork.knife.circle",
+           "miscellaneous": "gearshape",
+       ]
     
     var body: some View {
         HStack(spacing: 20) {
             
-            RoundedRectangle(cornerRadius: 50, style: .continuous)
-                .frame(width: 45, height: 45)
-                .overlay {
-                    Image(expense.category ?? "")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 45, height: 45)
-                }
+            Image(systemName:  categoryImageMapping[expense.category ?? "questionmark.circle"] ?? "questionmark.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 35, height: 35)
+                .foregroundColor(.minimalTheme)
             
             VStack(alignment: .leading, spacing: 6) {
                 Text(expense.title ?? "Expense")

@@ -166,7 +166,9 @@ struct BudgetView: View {
                                 .foregroundColor(progress > 0.85 ? Color.red : Color.minimalTheme)
                         }
                         .onAppear {
-                            progress = totalSum/budgetAmount
+                            progress = Double(totalSum/budgetAmount)
+                            print(totalSum, budgetAmount)
+                            print(progress)
                         }
                     }
                     .padding()

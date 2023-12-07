@@ -16,7 +16,8 @@ struct AddExpenseView: View {
     @State private var selectedtransactionTypeIndex = 1
     @State private var selectedtransactionType = "Card"
     @State private var amount = "0"
-    @State private var category = ""
+    @State private var category = "LifeStyle"
+    @State private var selectedCategoryIndex = 0
     @State private var selectedfrequencyIndex = 0
     @State private var selectedfrequency = ""
     @State private var expenseDate = Date()
@@ -24,6 +25,14 @@ struct AddExpenseView: View {
     
     let frequencies = ["Never", "Daily", "Weekly", "Monthly", "Quarterly", "Yearly"]
     let transactionTypes = ["Cash", "Card"]
+    let categoryMapping: [String: String] = [
+           "Groceries": "cart.circle",
+           "LifeStyle": "heart.circle",
+           "Travel": "car.circle",
+           "Medical": "cross.case.circle",
+           "Food": "fork.knife.circle",
+           "miscellaneous": "gearshape",
+       ]
     
     var expense: Expense?
     
@@ -115,9 +124,20 @@ struct AddExpenseView: View {
                     Text("Category")
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Spacer()
-                    TextField("Enter your Category", text: $category)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .multilineTextAlignment(.trailing)
+                    Picker(selection: $category, label: Text("")) {
+                        ForEach(categoryMapping.keys.sorted(), id: \.self) { category in
+                            HStack {
+                                Image(systemName: categoryMapping[category] ?? "questionmark.circle")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                Text(category)
+                                    .tag(category)
+                            }
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .tint(.black)
                 }
                 .padding(10)
                 
@@ -148,7 +168,6 @@ struct AddExpenseView: View {
                     }
                     .onChange(of: selectedfrequencyIndex, {
                         selectedfrequency = frequencies[selectedfrequencyIndex]
-                        print(selectedfrequency)
                     })
                     .tint(.black)
                     
