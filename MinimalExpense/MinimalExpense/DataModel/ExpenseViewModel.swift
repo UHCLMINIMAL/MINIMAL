@@ -46,13 +46,14 @@ class ExpenseViewModel: ObservableObject {
         save(context: context)
     }
     
-    func editExpense(expense: Expense, title: String, transactionType: String, amount: Double, category: String, expenseDate: Date, context: NSManagedObjectContext) {
+    func editExpense(expense: Expense, title: String, transactionType: String, amount: Double, category: String, expenseDate: Date, frequency: String, context: NSManagedObjectContext) {
         
         expense.title = title
         expense.amount = amount
         expense.category = category
         expense.expenseDate = expenseDate
         expense.transactionType = transactionType
+        expense.frequency = frequency
         expense.updatedOn = Date()
         
         save(context: context)

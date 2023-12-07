@@ -109,7 +109,6 @@ struct BudgetView: View {
                     HStack {
                         Button(action: {
                             self.selectedMonthIndex = (self.selectedMonthIndex - 1 + self.months.count) % self.months.count
-                            print(budgetAmount)
                         }) {
                             Image(systemName: "arrow.left")
                                 .foregroundColor(.blue)

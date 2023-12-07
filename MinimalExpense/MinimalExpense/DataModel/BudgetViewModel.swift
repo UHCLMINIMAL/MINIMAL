@@ -57,7 +57,6 @@ class BudgetViewModel: ObservableObject {
         let fetchRequest = NSFetchRequest<Budget>(entityName: "Budget")
         
         // Create a predicate to filter budget for the selected month
-        print(budgetPeriod)
         let predicate = NSPredicate(format: "budgetPeriod = %ld", budgetPeriod as CVarArg)
         fetchRequest.predicate = predicate
         

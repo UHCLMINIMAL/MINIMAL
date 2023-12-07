@@ -22,8 +22,7 @@ struct ReportView: View {
     
     private var expenses: FetchedResults<Expense>
     @State private var rawSelectedDate: Date? = nil
-    
-    
+
     // Create a date formatter to format the date
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

@@ -20,16 +20,35 @@ struct AddExpenseView: View {
     @State private var selectedfrequencyIndex = 0
     @State private var selectedfrequency = ""
     @State private var expenseDate = Date()
+    var isEditMode: Bool = false
     
     let frequencies = ["Never", "Daily", "Weekly", "Monthly", "Quarterly", "Yearly"]
     let transactionTypes = ["Cash", "Card"]
     
-    init() {
+    var expense: Expense?
+    
+    init(expense: Expense? = nil) {
+        
+        self.expense = expense
+        
         // Customizations for the UISegmentedControl
         UISegmentedControl.appearance().backgroundColor = .minimalTheme.withAlphaComponent(0.15)
         UISegmentedControl.appearance().setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         UISegmentedControl.appearance().selectedSegmentTintColor = .minimalTheme
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        
+        // Set initial values if editing existing expense
+        if let expense = expense {
+            isEditMode = true
+            _title = State(initialValue: expense.title ?? "")
+            _selectedtransactionTypeIndex = State(initialValue: transactionTypes.firstIndex(of: expense.transactionType ?? "Card") ?? 1)
+            _selectedtransactionType = State(initialValue: expense.transactionType ?? "Card")
+            _amount = State(initialValue: "\(expense.amount)")
+            _category = State(initialValue: expense.category ?? "")
+            _selectedfrequencyIndex = State(initialValue: frequencies.firstIndex(of: expense.frequency ?? "Never") ?? 0)
+            _selectedfrequency = State(initialValue: expense.frequency ?? "Never")
+            _expenseDate = State(initialValue: expense.expenseDate ?? Date())
+        }
     }
     
     var body: some View {
@@ -139,10 +158,14 @@ struct AddExpenseView: View {
                 Spacer()
                 
                 Button(action: {
-                    ExpenseViewModel().addExpense(title: title, transactionType: selectedtransactionType, amount: Double(amount) ?? 0, category: category, expenseDate: expenseDate, frequency: selectedtransactionType ,context: managedObjConetxt)
+                    if !isEditMode {
+                        ExpenseViewModel().addExpense(title: title, transactionType: selectedtransactionType, amount: Double(amount) ?? 0, category: category, expenseDate: expenseDate, frequency: selectedtransactionType ,context: managedObjConetxt)
+                    } else {
+                        ExpenseViewModel().editExpense(expense: expense ?? Expense(), title: title, transactionType: selectedtransactionType, amount: Double(amount) ?? 0, category: category, expenseDate: expenseDate, frequency: selectedtransactionType ,context: managedObjConetxt)
+                    }
                     self.dismiss()
                 }, label: {
-                    Text("Add Expense")
+                    Text(!isEditMode ? "Add Expense" : "Edit Expense")
                 })
                 .padding([.top, .bottom], 10)
                 .padding([.leading, .trailing], 90)

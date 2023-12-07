@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ExpensesCard: View {
     
+    @Environment(\.managedObjectContext) var managedObjConetxt
+    
     var expenses: FetchedResults<Expense>
+    
     @State private var editMode = EditMode.inactive
     
     var body: some View {
@@ -20,7 +23,7 @@ struct ExpensesCard: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: RecentEcpensesView(expenses: expenses, isHomeView: false, editMode: $editMode)) {
+                NavigationLink(destination: RecentEcpensesView(isHomeView: false, editMode: $editMode)) {
                     HStack(spacing: 4) {
                         Text("See All")
                             .font(.headline)
@@ -30,7 +33,7 @@ struct ExpensesCard: View {
                 }
             }
             
-            RecentEcpensesView(expenses: expenses, isHomeView: true, editMode: .constant(.inactive))
+            RecentEcpensesView(isHomeView: true, editMode: .constant(.inactive))
         }
         .padding()
         .background(Color(.systemGray5))

@@ -9,6 +9,10 @@ import SwiftUI
 
 struct TransactionRow: View {
     
+    @Environment(\.managedObjectContext) var managedObjConetxt
+    
+    var expenses: FetchedResults<Expense>
+    
     var expense: Expense
     
     var body: some View {
