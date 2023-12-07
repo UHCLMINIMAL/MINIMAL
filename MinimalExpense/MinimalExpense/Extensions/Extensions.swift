@@ -27,3 +27,15 @@ extension DateFormatter {
         return formatter
     }()
 }
+
+extension String {
+    func convertMonthStringToYearMonthInt() -> Int32? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM, yyyy" // Set the input format based on your current format
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = "yyyyMM" // Set the desired output format
+            return Int32(dateFormatter.string(from: date))
+        }
+        return nil // Handle invalid input string or conversion failure
+    }
+}

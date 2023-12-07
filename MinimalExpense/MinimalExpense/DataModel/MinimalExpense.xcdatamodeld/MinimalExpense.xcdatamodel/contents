@@ -3,10 +3,8 @@
     <entity name="Budget" representedClassName="Budget" syncable="YES" codeGenerationType="class">
         <attribute name="budgetAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="budgetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="budgetPeriod" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="budgetPeriod" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="spentAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="updatedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

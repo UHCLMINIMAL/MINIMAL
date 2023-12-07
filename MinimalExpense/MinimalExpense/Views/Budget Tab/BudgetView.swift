@@ -12,15 +12,30 @@ struct BudgetView: View {
     @Environment (\.managedObjectContext) var managedObjConetxt
     @Environment (\.dismiss) var dismiss
     
+    private var categorySums: [DataStructs.CategorySum] {
+        ExpenseViewModel().sumOfAmountsGroupedByCategory(context: managedObjConetxt)
+    }
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Expense.createdOn, ascending: false)],
+        animation: .default)
+    
+    private var expenses: FetchedResults<Expense>
+    
+    @State private var budgetAmount: Double = 0.0
     @State private var amount = ""
     @State private var selectedMonth = ""
     @State private var selectedMonthIndex = 0
     @State private var isDatePickerVisible = false
     @State private var isSaveDisbaled = true
-    @State private var progress = 0.95
+    @State private var userDidChangeAmount = false
+    @State private var progress = 0.0
+    
     let months = BudgetViewModel().getMonthYearListFromCurrentDate()
 
     var body: some View {
+        
+        let totalSum = categorySums.reduce(0) { $0 + $1.totalAmount }
         
         ZStack {
             VStack(alignment: .leading, spacing: 20) {
@@ -42,21 +57,36 @@ struct BudgetView: View {
                                 TextField("Enter Budget Amount", text: $amount)
                                     .bold()
                                     .foregroundColor(Color(.minimalTheme))
+                                    .onAppear {
+                                        let budgetAmt = BudgetViewModel().retriveBudget(budgetPeriod: Int32("December, 2023".convertMonthStringToYearMonthInt() ?? 199901), context: managedObjConetxt)
+                                        amount = String(budgetAmt)
+                                        budgetAmount = budgetAmt
+                                    }
                                     .onChange(of: amount) {
                                         // Perform actions when the TextField value changes
-                                        isSaveDisbaled = false
+                                        isSaveDisbaled = !userDidChangeAmount
+                                    }
+                                    .onTapGesture {
+                                        // Set userDidChangeAmount to true when the user taps on the TextField
+                                        userDidChangeAmount = true
                                     }
                             }
                             .padding()
                             .font(.title2)
                             
-                            
                             Button(action: {
-                                
+                                if userDidChangeAmount {
+                                    
+                                } else {
+                                    BudgetViewModel().addBudget(
+                                        budgetAmount: Double(amount) ?? 0.0,
+                                        budgetPeriod: selectedMonth.convertMonthStringToYearMonthInt() ?? 202312,
+                                        createdOn: Date(),
+                                        context: managedObjConetxt)
+                                }
                             }, label: {
                                 Text("Save")
                                     .font(.callout)
-                                
                             })
                             .disabled(isSaveDisbaled)
                             .padding([.top, .bottom], 5)
@@ -79,6 +109,7 @@ struct BudgetView: View {
                     HStack {
                         Button(action: {
                             self.selectedMonthIndex = (self.selectedMonthIndex - 1 + self.months.count) % self.months.count
+                            print(budgetAmount)
                         }) {
                             Image(systemName: "arrow.left")
                                 .foregroundColor(.blue)
@@ -90,6 +121,9 @@ struct BudgetView: View {
                             }
                         }
                         .pickerStyle(SegmentedPickerStyle())
+                        .onChange(of: selectedMonthIndex, {
+                            budgetAmount = BudgetViewModel().retriveBudget(budgetPeriod: selectedMonth.convertMonthStringToYearMonthInt() ?? 199901, context: managedObjConetxt)
+                        })
 
                         Button(action: {
                             self.selectedMonthIndex = (self.selectedMonthIndex + 1) % self.months.count
@@ -125,14 +159,16 @@ struct BudgetView: View {
                             .rotationEffect(Angle(degrees: 270.0))
                         
                         VStack{
-                            Text("$200")
+                            Text((budgetAmount - totalSum).stringFormat)
                                 .font(.title)
                                 .foregroundColor(progress > 0.85 ? Color.red : Color.minimalTheme)
                             Text("Left to Spend")
                                 .font(.caption)
                                 .foregroundColor(progress > 0.85 ? Color.red : Color.minimalTheme)
                         }
-                        
+                        .onAppear {
+                            progress = totalSum/budgetAmount
+                        }
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
@@ -146,9 +182,6 @@ struct BudgetView: View {
             .padding()
             .frame(maxWidth: .infinity)
         }
-        
-        
-            
     }
     
     func getFormattedMonth() -> String {

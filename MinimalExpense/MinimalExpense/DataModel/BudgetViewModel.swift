@@ -23,14 +23,13 @@ class BudgetViewModel: ObservableObject {
     func save(context: NSManagedObjectContext) {
         do {
             try context.save()
-            print("Expense Saved")
+            print("Budget Saved")
         } catch {
             print("Data Saved Failed")
-        }
-        
+        }  
     }
     
-    func addBudget(budgetAmount: Double, budgetPeriod: Int64, createdOn: Date, spentAmount: Double, updatedOn: Data, context: NSManagedObjectContext) {
+    func addBudget(budgetAmount: Double, budgetPeriod: Int32, createdOn: Date, context: NSManagedObjectContext) {
         
         let newBudget = Budget(context: context)
         
@@ -38,32 +37,41 @@ class BudgetViewModel: ObservableObject {
         newBudget.budgetAmount = budgetAmount
         newBudget.budgetPeriod = budgetPeriod
         newBudget.createdOn = Date()
-        newBudget.spentAmount = spentAmount
-        newBudget.updatedOn = Date()
+        
+        save(context: context)
+        print("Saved")
+    }
+    
+    func editBudget (budget: Budget, budgetAmount: Double, budgetPeriod: Int32, createdOn: Date, context: NSManagedObjectContext) {
+        
+        budget.budgetAmount = budgetAmount
+        budget.budgetPeriod = budgetPeriod
+        budget.createdOn = Date()
         
         save(context: context)
     }
     
     // get Budget Amount for the selected Month
-    func retriveBudget(budgetPeriod: Int64, context: NSManagedObjectContext) -> Double {
+    func retriveBudget(budgetPeriod: Int32, context: NSManagedObjectContext) -> Double {
         
-        let fetchRequest = NSFetchRequest<Expense>(entityName: "Budget")
+        let fetchRequest = NSFetchRequest<Budget>(entityName: "Budget")
         
         // Create a predicate to filter budget for the selected month
-        let predicate = NSPredicate(format: "budgetPeriod >= %@", budgetPeriod as CVarArg)
+        print(budgetPeriod)
+        let predicate = NSPredicate(format: "budgetPeriod = %ld", budgetPeriod as CVarArg)
         fetchRequest.predicate = predicate
         
         do {
             let results = try context.fetch(fetchRequest)
             
             if let budget = results.first {
-                let budgetAmount = budget.amount
+                let budgetAmount = budget.budgetAmount
                 return budgetAmount
             } else {
                 return 0
             }
         } catch {
-            print("Error fetching expenses: \(error)")
+            print("Error fetching Budget: \(error)")
             return 0
         }
     }
